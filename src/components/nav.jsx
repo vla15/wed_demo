@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './nav.css';
 import { Link } from 'react-router-dom';
+import { routes } from '../enums/enums';
 
 class Nav extends Component {
   constructor(props) {
@@ -31,18 +32,11 @@ class Nav extends Component {
           </button>
           <div className={ 'collapse navbar-collapse ' + show } id="navbar1">
             <ul className="navbar-nav ml-auto">
-              <li className="nav-item ml-auto">
-                <Link to="/home" className="nav-link">Home</Link>
-              </li>
-              <li className="nav-item ml-auto">
-                <Link to="/story" className="nav-link">Our Story</Link>
-              </li>
-              <li className="nav-item ml-auto">
-                <Link to="/wedding" className="nav-link">The Wedding</Link>
-              </li>
-              <li className="nav-item ml-auto">
-                <Link to="/gallery" className="nav-link">Gallery</Link>
-              </li>
+              {routes.map(({ path, title }) => (
+                <li className="nav-item ml-auto" key={path}>
+                  <Link to={path} className="nav-link">{title}</Link>
+                </li>
+              ))}
             </ul>
           </div>
         </nav>
