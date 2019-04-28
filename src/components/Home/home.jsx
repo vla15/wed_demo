@@ -16,8 +16,8 @@ class Home extends Component {
       backgroundPosition: 'center center'
     };
     return (
-      <div id="content-container">
-        <div className="header-container" style={style}>
+      <div className="home-body">
+        <div className="home-body-splash" style={style}>
         </div>
       </div>
     );

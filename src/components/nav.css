@@ -1,11 +1,6 @@
 .navbar-container {
   width: 100%;
-  position: absolute !important;
   background-color: transparent;
-}
-
-.navbar-toggler, .nav-link {
-  color: black !important;
 }
 
 .navbar-nav-enter {

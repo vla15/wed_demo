@@ -7,7 +7,7 @@ class Story extends Component {
 
   render() {
     return (
-      <div>
+      <div className="non-splash-container">
         Story Section.
       </div>
     )
