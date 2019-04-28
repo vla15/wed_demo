@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import './navBar.css';
+import './nav.css';
+import { Link } from 'react-router-dom';
 
-class NavBar extends Component {
+class Nav extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -30,11 +31,17 @@ class NavBar extends Component {
           </button>
           <div className={ 'collapse navbar-collapse ' + show } id="navbar1">
             <ul className="navbar-nav ml-auto">
-              <li className="nav-item active ml-auto">
-                <a className="nav-link" href="#">Home</a>
+              <li className="nav-item ml-auto">
+                <Link to="/home" className="nav-link">Home</Link>
               </li>
               <li className="nav-item ml-auto">
-                <a className="nav-link" href="#">Link</a>
+                <Link to="/story" className="nav-link">Our Story</Link>
+              </li>
+              <li className="nav-item ml-auto">
+                <Link to="/wedding" className="nav-link">The Wedding</Link>
+              </li>
+              <li className="nav-item ml-auto">
+                <Link to="/gallery" className="nav-link">Gallery</Link>
               </li>
             </ul>
           </div>
@@ -44,4 +51,4 @@ class NavBar extends Component {
   }
 }
 
-export default NavBar
+export default Nav;

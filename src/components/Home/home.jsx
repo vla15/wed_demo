@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import CarouselHeader from './carousel';
-import './jumboHeader.css';
+import './home.css';
 
-class JumboHeader extends Component {
+class Home extends Component {
   constructor(props) {
     super(props);
   }
 
   render() {
+
     const style = {
       flex: 1,
       backgroundImage: `url(${process.env.PUBLIC_URL}/splash.jpg)`,
@@ -16,10 +16,12 @@ class JumboHeader extends Component {
       backgroundPosition: 'center center'
     };
     return (
-      <div className="header-container" style={style}>
+      <div id="content-container">
+        <div className="header-container" style={style}>
+        </div>
       </div>
     );
   }
 }
 
-export default JumboHeader;
+export default Home;

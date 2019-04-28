@@ -1,0 +1,27 @@
+.content-container, .content-page {
+  height: 100%;
+  width: 100%;
+}
+
+.content-page-enter {
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+.content-page-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.content-page-exit {
+  opacity: 1;
+  transform: translateX(-50%);
+}
+
+.content-page-exit-active {
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: opacity 300ms, transform 300ms;
+}
+
