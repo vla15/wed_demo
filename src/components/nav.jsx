@@ -25,7 +25,7 @@ class Nav extends Component {
     const show = isCollapsed ? 'show' : '';
     const navbarContainer = {};
     navbarContainer.style = {
-      position: location.pathname === '/home' ? 'absolute' : ''
+      position: location.pathname === '/' ? 'absolute' : ''
     }
     return (
       <div className="navbar-container" style={{ ...navbarContainer.style }}>
