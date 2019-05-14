@@ -2,40 +2,61 @@ import React, { Component } from 'react';
 import './App.css';
 import Nav from './components/nav.jsx'
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
-import { CSSTransition } from 'react-transition-group';
-import { routes } from './enums/enums';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { Routes } from './enums/routes';
 
 
 
 class App extends Component {
   render() {
     return (
-      <Router>
-        <Nav />
-        <div className="content-container">
-          <Switch>
-            {routes.map(({ path, Component }) => (
-              <Route key={path} exact path={path}>
-                {({ match }) => (
+      <div style={containerStyle} >
+        <Router>
+          <Nav />
+          <div className="content-container">
+          <Route 
+            render={({ location }) => (
+              <div className="full-page">
+                <Route
+                  exact
+                  path="/"
+                  render={() => <Redirect to="/home" />}
+                />
+
+                <TransitionGroup>
                   <CSSTransition
-                    in={match != null}
+                    key={location.key}
                     timeout={300}
                     classNames="content-page"
-                    unmountOnExit
                   >
-                    <div className="content-page">
-                      <Component />
-                    </div>
+                    <Switch location={location}>
+                      {Routes.map(({ path, Component }) => (
+                        <Route key={path} exact path={path}>
+                          <div className="content-page">
+                            <Component />
+                          </div>
+                        </Route>
+                      ))}
+                    </Switch>
                   </CSSTransition>
-                )}
-              </Route>
-            ))}
-            <Redirect to="/" />
-          </Switch>
-        </div>
-      </Router>
+                </TransitionGroup>
+              </div>
+            )}
+          />
+          </div>
+        </Router>
+      </div>
     );
   }
+}
+
+const containerStyle = {
+  height: '100%',
+  width: '100%',
+  backgroundImage: `url(${process.env.PUBLIC_URL}/background_photo.jpg)`,
+  backgroundSize: 'cover',
+  backgroundRepeat: 'no-repeat',
+  backgroundPosition: 'center center'
 }
 
 export default App;
