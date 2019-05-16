@@ -1,6 +1,7 @@
 .content-container, .content-page {
   height: 100%;
   width: 100%;
+  display: flex;
 }
 
 .content-page-enter {
@@ -25,3 +26,7 @@
   transition: opacity 300ms, transform 300ms;
 }
 
+.full-page, .full-page > div {
+  height: 100%;
+  width: 100%;
+}

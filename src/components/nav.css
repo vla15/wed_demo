@@ -1,11 +1,6 @@
 .navbar-container {
   width: 100%;
-  position: absolute !important;
   background-color: transparent;
-}
-
-.navbar-toggler, .nav-link {
-  color: black !important;
 }
 
 .navbar-nav-enter {
@@ -23,8 +18,35 @@
   opacity: 1;
 }
 
+@media(max-width: 768px) {
+  .navbar-name-header {
+    display: none;
+  }
+}
+
+@media(min-width: 768px) {
+  .navbar {
+    flex-direction: column !important;
+  }
+}
+
 .navbar-nav-exit-active {
   opacity: 0;
   transform: scale(0.9);
   transition: opacity 300ms, transform 300ms;
+}
+
+.navbar-subtext {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  position: absolute;
+}
+.navbar-subtext > span:first-child {
+  font-size: 12px;
+}
+.navbar-subtext > span:last-child {
+  font-size: 12px;
 }

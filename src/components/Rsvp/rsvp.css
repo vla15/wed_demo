@@ -1,0 +1,23 @@
+.circle-icon-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.label-input {
+  margin-bottom: 0px;
+}
+
+.modal-footer {
+  border-top: none !important;
+}
+
+.dismiss-container {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.dismiss {
+  border: none;
+  background-color: transparent;
+}

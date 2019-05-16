@@ -9,16 +9,17 @@ class Home extends Component {
   render() {
 
     const style = {
-      flex: 1,
       backgroundImage: `url(${process.env.PUBLIC_URL}/splash.jpg)`,
       backgroundSize: 'cover',
       backgroundRepeat: 'no-repeat',
-      backgroundPosition: 'center center'
+      backgroundPosition: 'center center',
+      height: '100%',
+      width: '100%'
     };
     return (
-      <div id="content-container">
-        <div className="header-container" style={style}>
-        </div>
+      <div className="home-body">
+        <div className="mobile-home-body-splash" style={style}></div>
+        <img className="desktop-home-body-splash" src={`${process.env.PUBLIC_URL}/splash.jpg`}/>
       </div>
     );
   }

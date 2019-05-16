@@ -7,7 +7,7 @@ class Wedding extends Component {
 
   render() {
     return (
-      <div>
+      <div className="non-splash-container">
         Wedding Section.
       </div>
     )

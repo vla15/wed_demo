@@ -1,9 +1,19 @@
-#content-container {
-  display:flex;
+.home-body {
   height: 100%;
   width: 100%
 }
 
-.container {
-  flex: 1;
+@media(min-width: 768px) {
+  .mobile-home-body-splash {
+    display: none;
+  }
+}
+@media(max-width: 768px) {
+  .desktop-home-body-splash {
+    display: none;
+  }
+}
+
+.desktop-home-body-splash {
+  width: 100%;
 }

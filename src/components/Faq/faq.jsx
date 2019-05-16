@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Story extends Component {
+class FAQ extends Component {
   constructor(props) {
     super(props);
   }
@@ -8,10 +8,10 @@ class Story extends Component {
   render() {
     return (
       <div className="non-splash-container">
-        Story Section.
+        FAQ section.
       </div>
-    )
+    );
   }
 }
 
-export default Story;
+export default FAQ;
