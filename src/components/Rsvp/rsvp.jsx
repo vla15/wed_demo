@@ -3,6 +3,8 @@ import Modal from 'react-modal';
 import { Circle } from '../common/circle';
 import './rsvp.css';
 
+Modal.defaultStyles.overlay.zIndex = 2;
+
 class RSVPModal extends Component {
   constructor(props) {
     super(props);
@@ -30,7 +32,11 @@ class RSVPModal extends Component {
   }
 
   generateCircles() {
-    let guests = [1, 2, 3, 4, 5];
+    let guests = [];
+    let maxGuests = this.props.selectedGuest.guests;
+    for (let i = 1; i <= maxGuests; i++) {
+      guests.push(i);
+    };
     let circles = guests.map(guest => {
       const isActive = guest === this.state.form.guests;
       return <Circle isActive={isActive} key={guest} value={guest} toggle={this.onGuestToggle} />
@@ -42,19 +48,19 @@ class RSVPModal extends Component {
     let inputs = this.state.form.names.map((guest, i) => {
       const label = `Guest ${i + 1}`;
       return (
-        <div className="name-input-div" key={i}>
-          <label className="label-input">{label}</label>
-          <input autoComplete={"off"} placeholder={'Enter Name'} className="name-input" value={this.state.form.names[i]} type="text" onChange={e => this.onInput(e, i)} />
+        <div className="form-group" key={i}>
+          <label htmlFor="reservationName">{label}</label>
+          <input id="reservationName" autoComplete={"off"} placeholder={'Enter Name'} className="form-control" value={this.state.form.names[i]} type="text" onChange={e => this.onInput(e, i)} />
         </div>
       )
     })
-    return <div className="name-input-container">{inputs}</div>
+    return <form className="name-input-container">{inputs}</form>
   }
 
   generateRestrictions() {
     return (
-      <div className="restriction-container"> 
-        <textarea style={{ height: 'auto', width: '100%' }} onChange={this.onTextAreaChange} value={this.state.form.restrictions}></textarea>
+      <div className="form-group"> 
+        <textarea className="form-control" rows="3" onChange={this.onTextAreaChange} value={this.state.form.restrictions}></textarea>
       </div>
     );
   }
@@ -62,6 +68,13 @@ class RSVPModal extends Component {
   generateSummary() {
     return (
       <div className="summary-container">
+        <div>Names:</div>
+        {this.state.form.names.map((name, i) => (
+          <div>
+            <span>{i + 1 + '.'} </span>
+            <span>{name}</span>
+          </div>
+        ))}
       </div>
     )
   }
@@ -119,8 +132,9 @@ class RSVPModal extends Component {
     });
   }
 
-  afterOpenModal() {
-    this.subtitleRef.current.style.color = '#f00';
+  afterOpenModal(e) {
+    // console.log('we got the overlay', this.overlay);
+    // this.subtitleRef.current.style.color = '#f00';
   }
 
   render() {
@@ -132,29 +146,34 @@ class RSVPModal extends Component {
       title = 'Please select the number of guests including yourself and children';
       content = this.generateCircles();
     } else if (this.state.form.step === 1) {
-      title = `Please enter in the names of your ${this.state.form.guests} guest(s)`
+      title = `Please enter in the name(s) of your ${this.state.form.guests} guest(s)`
       content = this.generateNameInput();
     } else if (this.state.form.step === 2) {
       title = 'Please let us know about any dietary restrictions.'
       content = this.generateRestrictions();
     } else {
-      title = 'Summary'
+      title = 'Please review the summary below to ensure everything is accurate.'
       content = this.generateSummary();
     }
     return (
       <div>
-        <button className="btn btn-info" onClick={this.toggleModal}>RSVP</button>
+        <button className="btn btn-primary" onClick={this.toggleModal}>RSVP</button>
         <Modal
           isOpen={this.state.isOpen}
           onAfterOpen={this.afterOpenModal}
           onRequestClose={this.onRequestClose}
           style={customStyles}
           contentLabel="Example Modal"
+          overlayRef={overlay => this.overlay = overlay}
         >
-
+          <div className="dismiss-container">
+            <button className="dismiss" onClick={this.onRequestClose}><i className="fas fa-times fa-2x"></i></button>
+          </div>
           <h2 ref={this.subtitleRef}>RSVP</h2>
-          <h3>{title}</h3>
-          {content}
+          <div>{title}</div>
+          <div className="modal-body">
+            {content}
+          </div>
           <div className="modal-footer">
           {this.state.form.step > 0 ? 
             <button className="btn btn-info" style={{marginRight: 'auto'}} onClick={() => this.updateStep('decrement')}>Back</button> :
@@ -165,10 +184,9 @@ class RSVPModal extends Component {
             ''
           }
           {
-            this.state.form.step === 3 ? <button className="btn btn-primary" onClick={this.onSave}>Save</button> :
+            this.state.form.step === 3 ? <button className="btn btn-primary" onClick={this.onSave}>Submit</button> :
             ''
           }
-            <button className="btn btn-danger" onClick={this.onRequestClose}>Exit</button>
           </div>
         </Modal>
       </div>
@@ -183,7 +201,9 @@ const customStyles = {
     right: 'auto',
     bottom: 'auto',
     marginRight: '-50%',
-    transform: 'translate(-50%, -50%)'
+    transform: 'translate(-50%, -50%)',
+    height: '100%',
+    minWidth: '100%'
   }
 };
 

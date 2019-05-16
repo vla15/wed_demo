@@ -3,24 +3,21 @@
   justify-content: space-around;
 }
 
-.name-input-container {
-  display: flex;
-  flex-flow: column;
-}
-
-.name-input-div {
-  margin-bottom: 0.5rem;
-}
-
-.name-input {
-  width: 100%;
-  border: 1px solid black;
-}
-
 .label-input {
   margin-bottom: 0px;
 }
 
 .modal-footer {
   border-top: none !important;
+}
+
+.dismiss-container {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.dismiss {
+  border: none;
+  background-color: transparent;
 }

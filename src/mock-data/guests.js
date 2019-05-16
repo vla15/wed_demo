@@ -1,4 +1,4 @@
-{
+const Guests = {
   "guests": [
     {
       "guests": 2,
@@ -54,6 +54,7 @@
       "last": "Cheng",
       "full": "Josphine Cheng"
     }
-
   ]
-}
+};
+
+export default Guests;
