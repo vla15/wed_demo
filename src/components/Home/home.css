@@ -1,6 +1,7 @@
 .home-body {
   height: 100%;
-  width: 100%
+  width: 100%;
+  background-color: white;
 }
 
 @media(min-width: 768px) {
@@ -8,12 +9,21 @@
     display: none;
   }
 }
-@media(max-width: 768px) {
+@media(max-width: 767px) {
   .desktop-home-body-splash {
     display: none;
   }
 }
 
 .desktop-home-body-splash {
+  width: 100%;
+}
+
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  height: 100%;
   width: 100%;
 }
