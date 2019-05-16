@@ -1,4 +1,6 @@
-const fauna = require('faunadb');
+require('dotenv').config()
+// import fauna from 'faunadb';
+// const fauna = require('faunadb');
 // const q = fauna.query;
 
 // const client = new fauna.Client({
