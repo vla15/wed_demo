@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './rsvp-search.css';
 import RSVPModal from './rsvp';
 import Guests from '../../mock-data/guests';
-import { getGuests } from '../../utils/guests';
+import { getGuests, getGuestsByFullName } from '../../utils/guests';
 
 
 class RSVPSearch extends Component {
@@ -10,54 +10,43 @@ class RSVPSearch extends Component {
     super(props);
     this.state = {
       searchTerm: '',
+      firstName: '',
+      lastName: '',
       guests: [],
-      matchedGuests: []
-      noResults: false,
+      matchedGuests: [],
     };
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
-  }
-
-  componentDidMount() {
-    let guestList = JSON.parse(window.sessionStorage.getItem('guestList'));
-    if (!guestList) {
-      getGuests()
-      .then(result => {
-        window.sessionStorage.setItem('guestList', JSON.stringify(guests))
-      })
-    }
-    this.setState({
-      guests: guestList
-    });
+    this.noResults = false;
   }
 
   onChange(e) {
-    const searchTerm = e.target.value;
-    this.setState({ searchTerm });
+    const attr = e.target.name;
+    const val = e.target.value;
+    this.setState({ [attr]: val });
   }
 
-  onSubmit(e) {
-    e.preventDefault();
-    const { searchTerm, guests } = this.state;
-    // const matchedGuests = guests.filter( guest => guest.full.toLowerCase().indexOf
-    // (searchTerm.toLowerCase()) >= 0);
-    const matchedGuests = Guests.guests.filter(guest => guest.full.toLowerCase().indexOf(searchTerm.toLowerCase()) >= 0);
-    let noResults = false;
-    if (!matchedGuests.length) {
-      noResults = true;
+  async onSubmit(e) {
+    e.preventDefault()
+    this.noResults = false;
+    const { firstName, lastName , guests } = this.state;
+    try {
+      const guests = await getGuestsByFullName(firstName, lastName);
+      this.setState({ matchedGuests: guests });
+    } catch (err) {
+      this.noResults = true;
     }
-    this.setState({ searchTerm: '', matchedGuests , noResults });
   }
 
   guestList() {
-    const { noResults, matchedGuests } = this.state;
-    if (noResults) {
+    const { matchedGuests } = this.state;
+    if (this.noResults) {
       return (
         <div className="no-guest-list">No Results</div>
       );
     }
-    const list = matchedGuests.map((guest, i) => (
-      <li className="guest-list-item" key={i}>
+    const list = matchedGuests.map(guest => (
+      <li className="guest-list-item" key={guest.ref}>
         <div className="guest-name">{guest.full}</div>
         <div className="guest-rsvp-btn"><RSVPModal selectedGuest={guest} /></div>
       </li>
@@ -71,12 +60,17 @@ class RSVPSearch extends Component {
     return (
       <div className="non-splash-container">
         <form className="mb-2" onSubmit={this.onSubmit}>
-          <div className="input-group">
-            <input className="form-control" type="text" value={this.state.searchTerm} onChange={this.onChange} placeholder={'Search for your name'}/>
-            <div className="input-group-append">
-              <button className="btn btn-primary" type="submit"><i className="fas fa-search"></i></button>
+          <div className="form-row">
+            <div className="form-group col-md-6">
+              <label for="firstName">First Name</label>
+              <input className="form-control" type="text" name="firstName" value={this.state.firstName} onChange={this.onChange} placeholder={'Enter in your first name'} autoComplete={'off'} />
+            </div>
+            <div className="form-group col-md-6">
+              <label for="lastName">Last Name</label>
+              <input className="form-control" type="text" name="lastName" value={this.state.lastName} onChange={this.onChange} placeholder={'Enter in your last name'} autoComplete={'off'} />
             </div>
           </div>
+          <button className="btn btn-primary" type="submit">Search</button>
         </form>
         {guests}
       </div>
