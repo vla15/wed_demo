@@ -14,8 +14,8 @@ class RSVPModal extends Component {
         guests: '',
         names: [],
         step: 0,
-        restrictions: ''
-      }
+        restrictions: '',
+      },
     };
     this.toggleModal = this.toggleModal.bind(this);
     this.onRequestClose = this.onRequestClose.bind(this);
@@ -29,19 +29,6 @@ class RSVPModal extends Component {
     this.onTextAreaChange = this.onTextAreaChange.bind(this);
     this.onSave = this.onSave.bind(this);
     this.subtitleRef = React.createRef();
-  }
-
-  generateCircles() {
-    let guests = [];
-    let maxGuests = this.props.selectedGuest.guests;
-    for (let i = 1; i <= maxGuests; i++) {
-      guests.push(i);
-    };
-    let circles = guests.map(guest => {
-      const isActive = guest === this.state.form.guests;
-      return <Circle isActive={isActive} key={guest} value={guest} toggle={this.onGuestToggle} />
-    })
-    return <div className="circle-icon-container">{circles}</div>
   }
 
   generateNameInput() {
@@ -116,6 +103,19 @@ class RSVPModal extends Component {
   onSave() {
     //sends email to vlabchow
     this.onRequestClose()
+  }
+
+  generateCircles() {
+    const guests = [];
+    const maxGuests = this.props.selectedGuest.guests;
+    for (let i = 1; i <= maxGuests; i += 1) {
+      guests.push(i);
+    }
+    const circles = guests.map(guest => {
+      const isActive = guest === this.state.form.guests;
+      return <Circle isActive={isActive} key={guest} value={guest} toggle={this.onGuestToggle} />
+    })
+    return <div className="circle-icon-container">{circles}</div>
   }
 
   updateStep(update) {

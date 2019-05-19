@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Gallery from 'react-grid-gallery';
-import { Images } from '../../enums/images';
+import Images from '../../enums/images';
 
 class GalleryPage extends Component {
   constructor(props) {

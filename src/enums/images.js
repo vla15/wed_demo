@@ -215,4 +215,4 @@ const Images = [
 ];
 
 
-export { Images };
+export default Images;

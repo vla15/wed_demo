@@ -3,7 +3,7 @@ import './App.css';
 import Nav from './components/nav.jsx'
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import { Routes } from './enums/routes';
+import Routes from './enums/routes';
 
 
 

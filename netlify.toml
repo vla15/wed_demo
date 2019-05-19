@@ -1,2 +1,3 @@
 [build]
-  functions = "functions"
+  functions = "functions/guests"
+  publish = "build"

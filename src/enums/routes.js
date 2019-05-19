@@ -17,4 +17,4 @@ const Routes = [
   { path: '/gallery', title: 'Photos', Component: GalleryPage },
 ];
 
-export { Routes };
+export default Routes;

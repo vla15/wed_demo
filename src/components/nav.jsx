@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './nav.css';
 import { Link, withRouter } from 'react-router-dom';
-import { Routes } from '../enums/routes';
+import Routes from '../enums/routes';
 import * as moment from 'moment';
 
 class Nav extends Component {

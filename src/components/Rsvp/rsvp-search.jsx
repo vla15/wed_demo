@@ -1,7 +1,8 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import './rsvp-search.css';
 import RSVPModal from './rsvp';
 import Guests from '../../mock-data/guests';
+import { getGuests } from '../../utils/guests';
 
 
 class RSVPSearch extends Component {
@@ -10,10 +11,24 @@ class RSVPSearch extends Component {
     this.state = {
       searchTerm: '',
       guests: [],
-      noResults: false
-    }
+      matchedGuests: []
+      noResults: false,
+    };
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+  }
+
+  componentDidMount() {
+    let guestList = JSON.parse(window.sessionStorage.getItem('guestList'));
+    if (!guestList) {
+      getGuests()
+      .then(result => {
+        window.sessionStorage.setItem('guestList', JSON.stringify(guests))
+      })
+    }
+    this.setState({
+      guests: guestList
+    });
   }
 
   onChange(e) {
@@ -23,27 +38,31 @@ class RSVPSearch extends Component {
 
   onSubmit(e) {
     e.preventDefault();
-    const matchedGuests = Guests.guests.filter(guest => guest.full.toLowerCase().indexOf(this.state.searchTerm.toLowerCase()) >= 0)
+    const { searchTerm, guests } = this.state;
+    // const matchedGuests = guests.filter( guest => guest.full.toLowerCase().indexOf
+    // (searchTerm.toLowerCase()) >= 0);
+    const matchedGuests = Guests.guests.filter(guest => guest.full.toLowerCase().indexOf(searchTerm.toLowerCase()) >= 0);
     let noResults = false;
     if (!matchedGuests.length) {
       noResults = true;
     }
-    this.setState({ searchTerm: '', guests: matchedGuests, noResults })
+    this.setState({ searchTerm: '', matchedGuests , noResults });
   }
 
   guestList() {
-    if (this.state.noResults) {
+    const { noResults, matchedGuests } = this.state;
+    if (noResults) {
       return (
         <div className="no-guest-list">No Results</div>
-      )
+      );
     }
-    const list = this.state.guests.map((guest, i) => (
+    const list = matchedGuests.map((guest, i) => (
       <li className="guest-list-item" key={i}>
         <div className="guest-name">{guest.full}</div>
-        <div className="guest-rsvp-btn"><RSVPModal selectedGuest={guest}/></div>
+        <div className="guest-rsvp-btn"><RSVPModal selectedGuest={guest} /></div>
       </li>
     ));
-    return <ul className="guest-list-container">{list}</ul>
+    return <ul className="guest-list-container">{list}</ul>;
   }
   
 
