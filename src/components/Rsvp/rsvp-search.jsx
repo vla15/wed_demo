@@ -15,12 +15,21 @@ class RSVPSearch extends Component {
     this.state = {
       firstName: '',
       lastName: '',
-      matchedGuests: [],
+      // matchedGuests: [],
+      matchedGuests: [{
+        ref: 123892139128312,
+        guests: 2,
+        first: 'Susana',
+        last: 'Lee',
+        full: 'Susana Lee',
+        isReserved: false,
+      }],
       noResults: false,
       isLoading: false,
     };
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+    this.handleReservation = this.handleReservation.bind(this);
   }
 
   onChange(e) {
@@ -41,24 +50,35 @@ class RSVPSearch extends Component {
     }
   }
 
+  handleReservation(update, index) {
+    this.setState((prevState) => {
+      const { matchedGuests } = prevState;
+      matchedGuests[index] = update;
+      return { matchedGuests };
+    });
+  }
+
+
   guestList() {
     const { matchedGuests, noResults } = this.state;
     if (noResults) {
       return (
-        <div className="no-guest-list">No Results</div>
+        <ul className="list-group">
+          <li className="list-group-item">No Results</li>
+        </ul>
       );
     }
-    const list = matchedGuests.map(guest => (
-      <li className="guest-list-item" key={guest.ref}>
+    const list = matchedGuests.map((guest, i) => (
+      <li className="guest-list-item list-group-item" key={guest.ref}>
         <div className="guest-name">{guest.full}</div>
         {
           guest.isReserved
             ? <div className="guest-rsvp-btn"><button type="button" disabled className="btn btn-primary">Replied</button></div>
-            : <div className="guest-rsvp-btn"><RSVPModal selectedGuest={guest} /></div>
+            : <div className="guest-rsvp-btn"><RSVPModal selectedGuest={guest} matchedGuestIndex={i} onReservation={this.handleReservation} /></div>
         }
       </li>
     ));
-    return <ul className="guest-list-container">{list}</ul>;
+    return <ul className="guest-list-container list-group">{list}</ul>;
   }
 
 
@@ -73,7 +93,7 @@ class RSVPSearch extends Component {
     };
     return (
       <div className="non-splash-container">
-        <form className="mb-2" onSubmit={this.onSubmit}>
+        <form className="mb-4" onSubmit={this.onSubmit}>
           <div className="form-row">
             <div className="form-group col-md-6">
               <label htmlFor="firstName">First Name</label>

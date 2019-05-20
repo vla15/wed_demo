@@ -1,12 +1,17 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable jsx-a11y/label-has-for */
 import React, { Component } from 'react';
 import Modal from 'react-modal';
+import PropTypes from 'prop-types';
 import Circle from '../common/circle';
 import GuestPropType from '../../enums/models';
+import RSVPSummary from './summary';
 import { updateReservation } from '../../utils/guests';
 import './rsvp.css';
 
 Modal.defaultStyles.overlay.zIndex = 2;
+Modal.defaultStyles.overlay.borderRadius = '10px';
+Modal.defaultStyles.overlay.border = '1px solid black';
 
 class RSVPModal extends Component {
   constructor(props) {
@@ -18,6 +23,7 @@ class RSVPModal extends Component {
         names: [],
         step: 0,
         restrictions: '',
+        email: '',
       },
     };
     this.toggleModal = this.toggleModal.bind(this);
@@ -27,6 +33,7 @@ class RSVPModal extends Component {
     this.generateCircles = this.generateCircles.bind(this);
     this.generateNameInput = this.generateNameInput.bind(this);
     this.generateRestrictions = this.generateRestrictions.bind(this);
+    this.generateEmailInput = this.generateEmailInput.bind(this);
     this.updateStep = this.updateStep.bind(this);
     this.onInput = this.onInput.bind(this);
     this.onTextAreaChange = this.onTextAreaChange.bind(this);
@@ -39,12 +46,15 @@ class RSVPModal extends Component {
     this.setState(prevState => ({ form: { ...prevState.form, restrictions: text } }));
   }
 
-  onInput(e, index) {
+  onInput(e, index, attr) {
     const text = e.target.value;
     this.setState((prevState) => {
-      const latest = prevState.form.names.slice(0);
-      latest[index] = text;
-      return { form: { ...prevState.form, names: latest } };
+      if (index !== null) {
+        const latest = prevState.form.names.slice(0);
+        latest[index] = text;
+        return { form: { ...prevState.form, [attr]: latest } };
+      }
+      return { form: { ...prevState.form, [attr]: text } };
     });
   }
 
@@ -70,19 +80,24 @@ class RSVPModal extends Component {
   async onSave() {
     // sends email to vlabchow
     const { form } = this.state;
-    const { guests, names, restrictions } = form;
-    const { selectedGuest } = this.props;
-    console.log('review the selected Guest', selectedGuest);
+    const {
+      guests,
+      names,
+      restrictions,
+      email,
+    } = form;
+    const { selectedGuest, onReservation, matchedGuestIndex } = this.props;
     const data = {
       guests,
       names,
       restrictions,
+      email,
       isReserved: true,
       id: selectedGuest.ref,
     };
     try {
       const res = await updateReservation(data);
-      console.log('the response back?', res);
+      onReservation(res.data, matchedGuestIndex);
       this.onRequestClose();
     } catch (err) {
       console.log('errored here', err);
@@ -92,19 +107,8 @@ class RSVPModal extends Component {
 
   generateSummary() {
     const { form } = this.state;
-    const { names, restrictions } = form;
-    return (
-      <div className="summary-container">
-        <h4>Names:</h4>
-        {names.map((name, i) => (
-          <div>
-            <div>{`${i + 1}. ${name}`}</div>
-          </div>
-        ))}
-        <h4>Dietary Restrictions</h4>
-        <div>{restrictions}</div>
-      </div>
-    );
+    const { names, restrictions, email } = form;
+    return <RSVPSummary names={names} restrictions={restrictions} email={email} />;
   }
 
 
@@ -113,7 +117,7 @@ class RSVPModal extends Component {
     const { restrictions } = form;
     return (
       <div className="form-group">
-        <textarea className="form-control" rows="3" onChange={this.onTextAreaChange} value={restrictions} />
+        <textarea className="form-control" rows="3" onChange={this.onTextAreaChange} value={restrictions} placeholder="Enter in any dietary restrictions" />
       </div>
     );
   }
@@ -127,7 +131,7 @@ class RSVPModal extends Component {
         // eslint-disable-next-line react/no-array-index-key
         <div className="form-group" key={i}>
           <label htmlFor="reservationName">{label}</label>
-          <input id="reservationName" autoComplete="off" placeholder="Enter Name" className="form-control" value={names[i]} type="text" onChange={e => this.onInput(e, i)} />
+          <input id="reservationName" autoComplete="off" placeholder="Enter Name" className="form-control" value={names[i]} type="text" onChange={e => this.onInput(e, i, 'names')} />
         </div>
       );
     });
@@ -146,6 +150,16 @@ class RSVPModal extends Component {
       return <Circle isActive={isActive} key={guest} value={guest} toggle={this.onGuestToggle} />;
     });
     return <div className="circle-icon-container">{circles}</div>;
+  }
+
+  generateEmailInput() {
+    const { form } = this.state;
+    return (
+      <div>
+        <label htmlFor="email">Email</label>
+        <input id="email" autoComplete="off" placeholder="Enter email" className="form-control" value={form.email} type="email" onChange={e => this.onInput(e, null, 'email')} />
+      </div>
+    );
   }
 
   updateStep(update) {
@@ -185,7 +199,7 @@ class RSVPModal extends Component {
     let content = '';
     let title = '';
     if (step === 0) {
-      title = 'Please select the number of guests including yourself and children';
+      title = 'Please select the number of guests including yourself and your children';
       content = this.generateCircles();
     } else if (step === 1) {
       title = `Please enter in the name(s) of your ${guests} guest(s)`;
@@ -193,6 +207,9 @@ class RSVPModal extends Component {
     } else if (form.step === 2) {
       title = 'Please let us know about any dietary restrictions.';
       content = this.generateRestrictions();
+    } else if (form.step === 3) {
+      title = 'Please provide us for an email to contact you by in case we need to verify some information';
+      content = this.generateEmailInput();
     } else {
       title = 'Please review the summary below to ensure everything is accurate.';
       content = this.generateSummary();
@@ -213,23 +230,25 @@ class RSVPModal extends Component {
             <button type="button" className="dismiss" onClick={this.onRequestClose}><i className="fas fa-times fa-2x" /></button>
           </div>
           <h2 ref={this.subtitleRef}>RSVP</h2>
-          <div>{title}</div>
-          <div className="modal-body">
-            {content}
-          </div>
-          <div className="modal-footer">
-            {step > 0
-              ? <button type="button" className="btn btn-info" style={{ marginRight: 'auto' }} onClick={() => this.updateStep('decrement')}>Back</button>
-              : ''
-          }
-            {
-            step < 3 ? <button type="button" className="btn btn-primary" disabled={isDisabled} onClick={() => this.updateStep('increment')}>Next</button>
-              : ''
-          }
-            {
-            step === 3 ? <button type="button" className="btn btn-primary" onClick={this.onSave}>Submit</button>
-              : ''
-          }
+          <div className="card">
+            <div className="modal-body card-body">
+              <h5 className="card-title">{title}</h5>
+              {content}
+            </div>
+            <div className="modal-footer card-footer">
+              {step > 0
+                ? <button type="button" className="btn btn-info" style={{ marginRight: 'auto' }} onClick={() => this.updateStep('decrement')}>Back</button>
+                : ''
+            }
+              {
+              step < 4 ? <button type="button" className="btn btn-primary" disabled={isDisabled} onClick={() => this.updateStep('increment')}>Next</button>
+                : ''
+            }
+              {
+              step === 4 ? <button type="button" className="btn btn-primary" onClick={this.onSave}>Submit</button>
+                : ''
+            }
+            </div>
           </div>
         </Modal>
       </div>
@@ -241,6 +260,8 @@ Modal.setAppElement('#root');
 
 RSVPModal.propTypes = {
   selectedGuest: GuestPropType,
+  onReservation: PropTypes.func,
+  matchedGuestIndex: PropTypes.number,
 };
 
 RSVPModal.defaultProps = {
@@ -252,6 +273,8 @@ RSVPModal.defaultProps = {
     full: 'Vincent La',
     isReserved: false,
   },
+  onReservation: () => {},
+  matchedGuestIndex: 0,
 };
 
 export default RSVPModal;

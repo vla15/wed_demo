@@ -18,18 +18,6 @@ ul, li {
   border-top: none;
 }
 
-.no-guest-list {
-  border-radius: 5px;
-  background-color: papayawhip;
-  width: 100%;
-  height: 10vh;
-  border: 1px solid black;
-  display: flex;
-  align-items: center;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
 .guest-list-item {
   background-color: papayawhip;
   border: 1px solid black;
@@ -37,10 +25,8 @@ ul, li {
   width: 100%;
   height: 10vh;
   border-radius: 5px;
-  display: flex;
+  display: flex !important;
   align-items: center;
-  padding-left: 10px;
-  padding-right: 10px;
 
 }
 
