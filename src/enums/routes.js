@@ -7,7 +7,7 @@ import RSVPSearch from '../components/Rsvp/rsvp-search';
 import FAQ from '../components/Faq/faq';
 
 const Routes = [
-  { path: '/home', title: 'Home', Component: Home },
+  { path: '/', title: 'Home', Component: Home },
   { path: '/wedding', title: 'Wedding Party', Component: Wedding },
   { path: '/schedule', title: 'Schedule', Component: Wedding },
   { path: '/story', title: 'Our Story', Component: Story },

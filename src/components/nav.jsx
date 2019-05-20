@@ -1,8 +1,9 @@
+/* eslint-disable react/prop-types */
 import React, { Component } from 'react';
 import './nav.css';
 import { Link, withRouter } from 'react-router-dom';
-import Routes from '../enums/routes';
 import * as moment from 'moment';
+import Routes from '../enums/routes';
 
 class Nav extends Component {
   constructor(props) {
@@ -14,7 +15,7 @@ class Nav extends Component {
   }
 
   onClick() {
-    this.setState((prevState, props) => ({ isCollapsed: !prevState.isCollapsed }));
+    this.setState(prevState => ({ isCollapsed: !prevState.isCollapsed }));
   }
 
   render() {
@@ -23,7 +24,7 @@ class Nav extends Component {
     const show = isCollapsed ? 'show' : '';
     const navbarContainer = {};
     navbarContainer.style = {
-      position: location.pathname === '/home' ? 'absolute' : '',
+      position: location.pathname === '/' ? 'absolute' : '',
     };
     const diff = moment('2019-12-21').diff(moment().startOf('day'), 'days');
     const wedStatus = diff > 0 ? `Days Left: ${diff}` : 'Married';

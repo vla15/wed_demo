@@ -1,17 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class FAQ extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    return (
-      <div className="non-splash-container">
-        FAQ section.
-      </div>
-    );
-  }
-}
+const FAQ = () => (
+  <div className="non-splash-container">
+    FAQ Section.
+  </div>
+);
 
 export default FAQ;
