@@ -13,9 +13,7 @@ import Routes from './enums/routes';
 class App extends Component {
   render() {
     const containerStyle = {
-      height: '100%',
-      width: '100%',
-      backgroundImage: `url(${process.env.PUBLIC_URL}/background_photo.jpg)`,
+      backgroundImage: `url(${process.env.PUBLIC_URL}/background_photo_other.png)`,
       backgroundSize: 'cover',
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'center center',

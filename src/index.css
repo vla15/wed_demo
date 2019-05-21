@@ -29,3 +29,8 @@ code {
   padding: 1rem;
   background-color: #f8f8f8;
 }
+
+.btn:not(disabled).btn:hover, .btn:not(disabled).btn:focus {
+  transform: scale(1.1);
+  transition: all 0.5s;
+}

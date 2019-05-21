@@ -5,9 +5,51 @@
   100% { opacity: 1 }
 }
 
+.rsvp-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.rsvp-form-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+  padding: 1rem;
+  border: 1px solid #d392d1;
+  border-radius: 4px;
+  width: 60%;
+  height: auto;
+  max-height: 75%;
+  background-color: white;
+  overflow: hidden;
+}
+
+.rsvp-form-btn {
+
+  display: flex;
+  justify-content: center;
+}
+
+.rsvp-form-title {
+
+  text-align: center;
+  color: white;
+  font-size: 1.5rem;
+}
+
+.rsvp-form {
+  padding: 2rem;
+}
+
 ul, li {
   margin: 0;
   padding: 0;
+}
+
+.search-results-container {
+  overflow: scroll;
 }
 
 .guest-list-container {
@@ -32,4 +74,17 @@ ul, li {
 
 .guest-rsvp-btn {
   margin-left:auto;
+}
+
+@media(max-width: 767px) {
+  .list-group-item {
+    padding: 1.75rem .5rem !important;
+  }
+  .guest-list-container {
+    overflow-y: scroll;
+  }
+  /* .rsvp-form-container {
+    height: 100%;
+    max-height: 100%;
+  } */
 }

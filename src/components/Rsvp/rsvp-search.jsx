@@ -15,15 +15,30 @@ class RSVPSearch extends Component {
     this.state = {
       firstName: '',
       lastName: '',
-      // matchedGuests: [],
-      matchedGuests: [{
-        ref: 123892139128312,
-        guests: 2,
-        first: 'Susana',
-        last: 'Lee',
-        full: 'Susana Lee',
-        isReserved: false,
-      }],
+      matchedGuests: [],
+      // matchedGuests: [{
+      //   ref: 123892139128312,
+      //   guests: 2,
+      //   first: 'Susana',
+      //   last: 'Lee',
+      //   full: 'Susana Lee',
+      //   isReserved: false,
+      // }, {
+      //   ref: 12020310,
+      //   guests: 3,
+      //   first: 'Juliana',
+      //   last: 'Lee',
+      //   full: 'Juliana Lee',
+      //   isReserved: false,
+      // }, {
+      //   ref: 120203310,
+      //   guests: 3,
+      //   first: 'Julius',
+      //   last: 'Lee',
+      //   full: 'Julius Randall Lee',
+      //   isReserved: false,
+      // },
+      // ],
       noResults: false,
       isLoading: false,
     };
@@ -91,40 +106,49 @@ class RSVPSearch extends Component {
       width: '100%',
       alignItems: 'flex-start',
     };
+    const containerStyle = {
+      backgroundImage: `url(${process.env.PUBLIC_URL}/background_photo.jpg)`,
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'center center',
+    };
     return (
-      <div className="non-splash-container">
-        <form className="mb-4" onSubmit={this.onSubmit}>
-          <div className="form-row">
-            <div className="form-group col-md-6">
-              <label htmlFor="firstName">First Name</label>
-              <input
-                className="form-control"
-                type="text"
-                name="firstName"
-                value={firstName}
-                onChange={this.onChange}
-                placeholder="Enter in your first name"
-                autoComplete="off"
-              />
+      <div className="rsvp-container">
+        <div className="rsvp-form-container" style={containerStyle}>
+          <div className="rsvp-form-title">Enter in your full name to search for your RSVP.</div>
+          <form className="rsvp-form" onSubmit={this.onSubmit}>
+            <div className="form-row">
+              <div className="form-group col-md-6">
+                <input
+                  className="form-control"
+                  type="text"
+                  name="firstName"
+                  value={firstName}
+                  onChange={this.onChange}
+                  placeholder="First Name"
+                  autoComplete="off"
+                />
+              </div>
+              <div className="form-group col-md-6">
+                <input
+                  className="form-control"
+                  type="text"
+                  name="lastName"
+                  value={lastName}
+                  onChange={this.onChange}
+                  placeholder="Last Name"
+                  autoComplete="off"
+                />
+              </div>
             </div>
-            <div className="form-group col-md-6">
-              <label htmlFor="lastName">Last Name</label>
-              <input
-                className="form-control"
-                type="text"
-                name="lastName"
-                value={lastName}
-                onChange={this.onChange}
-                placeholder="Enter in your last name"
-                autoComplete="off"
-              />
+            <div className="rsvp-form-btn">
+              <button className="btn btn-primary" type="submit">Search</button>
             </div>
+          </form>
+          <div className="search-results-container">
+            {isLoading ? <Spinner style={spinnerStyle} /> : ''}
+            {guests}
           </div>
-          <button className="btn btn-primary" type="submit">Search</button>
-        </form>
-        <div className="search-results-container">
-          {isLoading ? <Spinner style={spinnerStyle} /> : ''}
-          {guests}
         </div>
       </div>
     );
