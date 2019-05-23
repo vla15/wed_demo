@@ -1,6 +1,7 @@
 .navbar-container {
   width: 100%;
   background-color: transparent;
+  color: white;
 }
 
 .navbar-nav-enter {
@@ -18,9 +19,33 @@
   opacity: 1;
 }
 
+.navbar-light .navbar-nav .nav-item.active .nav-link {
+  color: black;
+  opacity: 0.5;
+}
+
+.navbar-light .navbar-nav .nav-item .nav-link {
+  color: white;
+}
+
 @media(max-width: 768px) {
   .navbar-name-header {
     display: none;
+  }
+  .navbar-nav {
+    background-color: transparent;
+    border-radius: 4px;
+    position: absolute;
+    right: 1rem;
+    z-index: 1000;
+    text-align: right;
+  }
+  .nav-item.active {
+    background-color: lightgrey;
+  }
+  .nav-link {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
   }
 }
 

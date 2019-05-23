@@ -30,14 +30,7 @@ class RSVPSearch extends Component {
       //   last: 'Lee',
       //   full: 'Juliana Lee',
       //   isReserved: false,
-      // }, {
-      //   ref: 120203310,
-      //   guests: 3,
-      //   first: 'Julius',
-      //   last: 'Lee',
-      //   full: 'Julius Randall Lee',
-      //   isReserved: false,
-      // },
+      // }
       // ],
       noResults: false,
       isLoading: false,
@@ -107,10 +100,9 @@ class RSVPSearch extends Component {
       alignItems: 'flex-start',
     };
     const containerStyle = {
-      backgroundImage: `url(${process.env.PUBLIC_URL}/background_photo.jpg)`,
-      backgroundSize: 'cover',
-      backgroundRepeat: 'no-repeat',
-      backgroundPosition: 'center center',
+      backgroundImage: `url(${process.env.PUBLIC_URL}/RSVP_box.jpg)`,
+      backgroundSize: '165%',
+      backgroundRepeatY: 'repeat',
     };
     return (
       <div className="rsvp-container">
@@ -145,10 +137,8 @@ class RSVPSearch extends Component {
               <button className="btn btn-primary" type="submit">Search</button>
             </div>
           </form>
-          <div className="search-results-container">
-            {isLoading ? <Spinner style={spinnerStyle} /> : ''}
-            {guests}
-          </div>
+          {isLoading ? <Spinner style={spinnerStyle} /> : ''}
+          {guests}
         </div>
       </div>
     );

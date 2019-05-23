@@ -40,7 +40,7 @@ class Home extends Component {
 
   render() {
     const { isLoading } = this.state;
-    const style = {
+    const mobileStyle = {
       backgroundImage: `url(${process.env.PUBLIC_URL}/splash.jpg)`,
       backgroundSize: 'cover',
       backgroundRepeat: 'no-repeat',
@@ -51,7 +51,7 @@ class Home extends Component {
     return (
       <div className="home-body">
         {isLoading ? <Spinner /> : '' }
-        <div ref={this.setBackgroundImageRef} className="mobile-home-body-splash fade-in" style={style} />
+        <div ref={this.setBackgroundImageRef} className="mobile-home-body-splash fade-in" style={mobileStyle} />
         <img className="desktop-home-body-splash fade-in" src={`${process.env.PUBLIC_URL}/splash.jpg`} alt="" />
       </div>
     );

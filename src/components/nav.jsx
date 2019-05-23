@@ -44,7 +44,7 @@ class Nav extends Component {
               {Routes.map(({ path, title }) => {
                 const isActive = path === location.pathname ? 'active' : '';
                 return (
-                  <li className={`nav-item ml-auto ${isActive}`} key={path}>
+                  <li className={`nav-item ${isActive}`} key={path}>
                     <Link to={path} className="nav-link">{title}</Link>
                   </li>
                 );

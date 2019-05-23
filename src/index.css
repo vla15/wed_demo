@@ -1,16 +1,14 @@
-html, body, #root, .App {
-  height: 100%;
-  width: 100%;
+html, body, #root, #root>div {
 }
 
 body {
-  margin: 0;
+  /* margin: 0;
   padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  -moz-osx-font-smoothing: grayscale; */
 }
 
 code {
@@ -19,18 +17,21 @@ code {
 }
 
 .non-splash-container {
-  margin-left: 10px;
-  margin-right: 10px;
-  margin-top: 10px;
   height: 100%;
   width: 100%;
-  border: 1px solid black;
-  border-radius: 4px;
   padding: 1rem;
-  background-color: #f8f8f8;
 }
 
 .btn:not(disabled).btn:hover, .btn:not(disabled).btn:focus {
-  transform: scale(1.1);
-  transition: all 0.5s;
+  box-shadow: 2px 2px 5px #222;
+  transition: all 0.1s;
+}
+
+.shadow-overlay {
+  position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to bottom,transparent 0,transparent 40%,rgba(0,0,0,.4) 100%);
 }
