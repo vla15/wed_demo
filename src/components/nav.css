@@ -1,7 +1,7 @@
 .navbar-container {
   width: 100%;
   background-color: transparent;
-  color: white;
+  color: #e2e4e9;
 }
 
 .navbar-nav-enter {
@@ -24,11 +24,23 @@
   opacity: 0.5;
 }
 
-.navbar-light .navbar-nav .nav-item .nav-link {
-  color: white;
+.navbar-nav {
+  font-size: 22px;
 }
 
-@media(max-width: 768px) {
+.navbar-light .navbar-nav .nav-item .nav-link {
+  color: #e2e4e9;
+}
+
+.navbar-name-header {
+  margin: 0;
+  font-family: 'Great Vibes', cursive;
+  font-size: 5rem;
+  line-height: unset;
+  color: #d4d1f1;
+}
+
+@media(max-width: 767px) {
   .navbar-name-header {
     display: none;
   }
@@ -64,7 +76,7 @@
 .navbar-subtext {
   display: flex;
   flex-direction: column;
-  color: white;
+  color: #e2e4e9;
   font-weight: bold;
   padding: 0.5rem 1rem;
   position: absolute;

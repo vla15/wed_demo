@@ -6,12 +6,12 @@
 
 @media(min-width: 768px) {
   .mobile-home-body-splash {
-    display: none;
+    background-size: 100%;
   }
 }
 @media(max-width: 767px) {
-  .desktop-home-body-splash {
-    display: none;
+  .mobile-home-body-splash {
+    background-size: cover;
   }
 }
 
@@ -26,5 +26,5 @@
   background-color: white;
   height: 100%;
   width: 100%;
-  z-index: 10000;
+  position: absolute;
 }

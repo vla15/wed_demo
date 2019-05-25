@@ -4,6 +4,7 @@ import './nav.css';
 import { Link, withRouter } from 'react-router-dom';
 import * as moment from 'moment';
 import Routes from '../enums/routes';
+// import './hatachi.regular.ttf';
 
 class Nav extends Component {
   constructor(props) {
@@ -31,8 +32,8 @@ class Nav extends Component {
     return (
       <div className="navbar-container" style={{ ...navbarContainer.style }}>
         <div className="navbar-subtext">
-          <span>December 21st 2019</span>
-          <span>{wedStatus}</span>
+          <div>December 21st 2019</div>
+          <div>{wedStatus}</div>
         </div>
         <nav className="navbar navbar-light navbar-expand-md">
           <h2 className="navbar-name-header">Betty & Vincent</h2>

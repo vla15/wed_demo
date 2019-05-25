@@ -1,4 +1,6 @@
 html, body, #root, #root>div {
+  font-family: 'Poiret One', cursive !important;
+  font-weight: bold;
 }
 
 body {
