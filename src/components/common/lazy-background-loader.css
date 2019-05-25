@@ -1,0 +1,22 @@
+.image-loader-container {
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  display: flex;
+}
+
+.background-image {
+  flex: 1;
+}
+
+@media(min-width: 768px) {
+  .background-image {
+    background-size: 100% 100%;
+    align-self: stretch;
+  }
+}
+@media(max-width: 767px) {
+  .background-image {
+    background-size: cover;
+  }
+}

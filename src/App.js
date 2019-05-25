@@ -18,9 +18,9 @@ class App extends Component {
   //   }
   // }
 
-  componentDidUpdate() {
-    console.log(window.location);
-  }
+  // componentDidUpdate() {
+  //   console.log(window.location);
+  // }
 
   render() {
     const containerStyle = {
