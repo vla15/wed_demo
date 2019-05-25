@@ -20,6 +20,7 @@ Spinner.defaultProps = {
     backgroundColor: 'white',
     height: '100%',
     width: '100%',
+    zIndex: '100000',
   },
 };
 

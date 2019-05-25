@@ -2,29 +2,5 @@
   height: 100%;
   width: 100%;
   background-color: white;
-}
-
-@media(min-width: 768px) {
-  .mobile-home-body-splash {
-    background-size: 100%;
-  }
-}
-@media(max-width: 767px) {
-  .mobile-home-body-splash {
-    background-size: cover;
-  }
-}
-
-.desktop-home-body-splash {
-  width: 100%;
-}
-
-.spinner-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: white;
-  height: 100%;
-  width: 100%;
-  position: absolute;
 }

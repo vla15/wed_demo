@@ -21,7 +21,6 @@
   }
   .story-overlay {
     position: absolute;
-    right: 0px;
     opacity: 0.5;
     background: grey;
     height: 100%;
@@ -48,7 +47,6 @@
   }
   .story-overlay {
     position: absolute;
-    right: 0px;
     opacity: 0.5;
     background: grey;
     height: 100%;
