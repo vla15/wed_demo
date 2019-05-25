@@ -1,62 +1,75 @@
+/* eslint-disable no-trailing-spaces */
+/* eslint-disable no-shadow */
+/* eslint-disable react/jsx-indent */
+/* eslint-disable react/jsx-filename-extension */
+/* eslint-disable react/prefer-stateless-function */
 import React, { Component } from 'react';
 import './App.css';
-import Nav from './components/nav.jsx'
-import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import { Routes } from './enums/routes';
-
-
+import Nav from './components/nav';
+import Routes from './enums/routes';
 
 class App extends Component {
-  render() {
-    return (
-      <div style={containerStyle} >
-        <Router>
-          <Nav />
-          <div className="content-container">
-          <Route 
-            render={({ location }) => (
-              <div className="full-page">
-                <Route
-                  exact
-                  path="/"
-                  render={() => <Redirect to="/home" />}
-                />
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
 
-                <TransitionGroup>
-                  <CSSTransition
-                    key={location.key}
-                    timeout={300}
-                    classNames="content-page"
-                  >
-                    <Switch location={location}>
-                      {Routes.map(({ path, Component }) => (
-                        <Route key={path} exact path={path}>
-                          <div className="content-page">
-                            <Component />
-                          </div>
-                        </Route>
-                      ))}
-                    </Switch>
-                  </CSSTransition>
-                </TransitionGroup>
-              </div>
-            )}
-          />
-          </div>
-        </Router>
+  //   }
+  // }
+
+  componentDidUpdate() {
+    console.log(window.location);
+  }
+
+  render() {
+    const containerStyle = {
+      backgroundImage: `url(${process.env.PUBLIC_URL}/Website_backgroundv3.jpg)`,
+      display: 'flex',
+      minHeight: '100%',
+      backgroundRepeatY: 'repeat',
+    };
+    const appContainerStyle = {
+      display: 'flex',
+      flexDirection: 'column',
+      flex: 1,
+    };
+    return (
+      <div className="app-background" style={containerStyle}>
+        <div className="app-container" style={appContainerStyle}>
+          <Router>  
+            <Nav />
+            <div className="content-container">
+            <Route 
+              render={({ location }) => (
+                <div className="full-page">
+                  <TransitionGroup>
+                    <CSSTransition
+                      key={location.key}
+                      timeout={300}
+                      classNames="content-page"
+                    >
+                      <Switch location={location}>
+                        {Routes.map(({ path, Component }) => (
+                          <Route key={path} exact path={path}>
+                            <div className="content-page">
+                              <Component />
+                            </div>
+                          </Route>
+                        ))}
+                      </Switch>
+                    </CSSTransition>
+                  </TransitionGroup>
+                </div>
+              )}
+            />
+            </div>
+          </Router>
+        </div>
       </div>
     );
   }
 }
 
-const containerStyle = {
-  height: '100%',
-  width: '100%',
-  backgroundImage: `url(${process.env.PUBLIC_URL}/background_photo.jpg)`,
-  backgroundSize: 'cover',
-  backgroundRepeat: 'no-repeat',
-  backgroundPosition: 'center center'
-}
 
 export default App;

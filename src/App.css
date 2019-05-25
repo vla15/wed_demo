@@ -1,32 +1,53 @@
+@media(max-width: 767px) {
+  .app-background {
+    background-size: 140%;
+  }
+}
+
+@media(min-width: 768px) {
+  .app-background {
+    background-size: 100%;
+  }
+}
+
 .content-container, .content-page {
-  height: 100%;
-  width: 100%;
   display: flex;
+  flex: 1;
 }
 
 .content-page-enter {
   opacity: 0;
-  transform: translateX(90%);
+  transform: translateX(100%);
 }
 
 .content-page-enter-active {
-  opacity: 1;
+  opacity: 0;
   transform: translateX(0%);
-  transition: opacity 300ms, transform 300ms;
+  transition: opacity 200ms, transform 200ms;
+}
+
+.content-page-enter-done {
+  opacity: 1;
+  transition: opacity 200ms;
 }
 
 .content-page-exit {
-  opacity: 1;
-  transform: translateX(-5%);
+  opacity: 0.5;
+  transform: translateX(0%);
 }
 
 .content-page-exit-active {
   opacity: 0;
   transform: translateX(-100%);
-  transition: opacity 300ms, transform 300ms;
+  transition: opacity 200ms, transform 200ms;
 }
 
-.full-page, .full-page > div {
+.full-page {
   height: 100%;
   width: 100%;
+}
+
+.full-page > div {
+  height: 100%;
+  display: flex;
 }
