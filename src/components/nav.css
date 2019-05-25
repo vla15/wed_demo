@@ -51,6 +51,8 @@
     right: 1rem;
     z-index: 1000;
     text-align: right;
+    overflow: scroll;
+    height: 70vh;
   }
   .nav-item.active {
     background-color: lightgrey;
