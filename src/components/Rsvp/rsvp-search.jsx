@@ -151,7 +151,6 @@ class RSVPSearch extends Component {
             </div>
             <div className="rsvp-form-btn">
               <button className="btn btn-primary" type="submit">Search</button>
-              
             </div>
           </form>
           {isLoading ? <Spinner style={spinnerStyle} /> : ''}
