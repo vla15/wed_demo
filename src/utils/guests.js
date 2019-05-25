@@ -8,7 +8,7 @@ const getGuests = async () => {
   }
 };
 
-const getGuestsByFullName = async (first, last) => {
+const getGuestsByName = async (first, last) => {
   try {
     const params = new URLSearchParams();
     params.append('first', first);
@@ -34,4 +34,4 @@ const updateReservation = async (form) => {
   }
 };
 
-export { getGuests, getGuestsByFullName, updateReservation };
+export { getGuests, getGuestsByName, updateReservation };

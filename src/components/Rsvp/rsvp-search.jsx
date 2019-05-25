@@ -5,7 +5,7 @@ import './rsvp-search.css';
 import RSVPModal from './rsvp';
 
 // import Guests from '../../mock-data/guests';
-import { getGuestsByFullName } from '../../utils/guests';
+import { getGuestsByName } from '../../utils/guests';
 import Spinner from '../common/spinner';
 
 
@@ -51,8 +51,10 @@ class RSVPSearch extends Component {
     this.setState({ noResults: false, isLoading: true });
     const { firstName, lastName } = this.state;
     try {
-      const guests = await getGuestsByFullName(firstName, lastName);
-      this.setState({ matchedGuests: guests, isLoading: false });
+      const guests = await getGuestsByName(firstName, lastName);
+      // eslint-disable-next-line no-unneeded-ternary
+      const noResults = guests.length ? true : false;
+      this.setState({ matchedGuests: guests, isLoading: false, noResults });
     } catch (err) {
       this.setState({ noResults: true, isLoading: false });
     }
@@ -88,6 +90,20 @@ class RSVPSearch extends Component {
     ));
     return <ul className="guest-list-container list-group">{list}</ul>;
   }
+
+  // addGuest() {
+  //   this.setState((prevState) => {
+  //     const matchedGuests = prevState.matchedGuests.slice(0).push({
+  //       ref: 123892139128312,
+  //       guests: 2,
+  //       first: 'Susana',
+  //       last: 'Lee',
+  //       full: 'Susana Lee',
+  //       isReserved: false,
+  //     });
+  //     return { matchedGuests };
+  //   });
+  // }
 
 
   render() {
@@ -135,6 +151,7 @@ class RSVPSearch extends Component {
             </div>
             <div className="rsvp-form-btn">
               <button className="btn btn-primary" type="submit">Search</button>
+              
             </div>
           </form>
           {isLoading ? <Spinner style={spinnerStyle} /> : ''}
@@ -144,5 +161,7 @@ class RSVPSearch extends Component {
     );
   }
 }
+
+// <button onClick={this.addGuest} className="btn btn-primary" type="button">Add Guest</button>
 
 export default RSVPSearch;
