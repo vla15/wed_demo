@@ -24,7 +24,7 @@ class App extends Component {
 
   render() {
     const containerStyle = {
-      backgroundImage: `url(${process.env.PUBLIC_URL}/Website_backgroundv3.jpg)`,
+      backgroundImage: `url(${process.env.PUBLIC_URL}/Website_backgroundv8.jpg)`,
       display: 'flex',
       minHeight: '100%',
       backgroundRepeatY: 'repeat',

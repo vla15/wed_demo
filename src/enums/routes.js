@@ -13,7 +13,7 @@ const Routes = [
   { path: '/story', title: 'Our Story', Component: Story },
   { path: '/rsvp', title: 'RSVP', Component: RSVPSearch },
   { path: '/registry', title: 'Registry', Component: Registry },
-  { path: '/faq', title: 'FAQ', Component: FAQ },
+  { path: '/qa', title: 'Q&A', Component: FAQ },
   { path: '/gallery', title: 'Photos', Component: GalleryPage },
 ];
 

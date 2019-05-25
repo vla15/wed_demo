@@ -15,23 +15,23 @@ class RSVPSearch extends Component {
     this.state = {
       firstName: '',
       lastName: '',
-      matchedGuests: [],
-      // matchedGuests: [{
-      //   ref: 123892139128312,
-      //   guests: 2,
-      //   first: 'Susana',
-      //   last: 'Lee',
-      //   full: 'Susana Lee',
-      //   isReserved: false,
-      // }, {
-      //   ref: 12020310,
-      //   guests: 3,
-      //   first: 'Juliana',
-      //   last: 'Lee',
-      //   full: 'Juliana Lee',
-      //   isReserved: false,
-      // }
-      // ],
+      // matchedGuests: [],
+      matchedGuests: [{
+        ref: 123892139128312,
+        guests: 2,
+        first: 'Susana',
+        last: 'Lee',
+        full: 'Susana Lee',
+        isReserved: false,
+      }, {
+        ref: 12020310,
+        guests: 3,
+        first: 'Juliana',
+        last: 'Lee',
+        full: 'Juliana Lee',
+        isReserved: false,
+      },
+      ],
       noResults: false,
       isLoading: false,
     };
@@ -73,8 +73,8 @@ class RSVPSearch extends Component {
     const { matchedGuests, noResults } = this.state;
     if (noResults) {
       return (
-        <ul className="list-group">
-          <li className="list-group-item">No Results</li>
+        <ul className="guest-list-container list-group">
+          <li className="no-result-list-item list-group-item">No Results</li>
         </ul>
       );
     }
@@ -151,7 +151,6 @@ class RSVPSearch extends Component {
             </div>
             <div className="rsvp-form-btn">
               <button className="btn btn-primary" type="submit">Search</button>
-              
             </div>
           </form>
           {isLoading ? <Spinner style={spinnerStyle} /> : ''}
