@@ -1,3 +1,8 @@
+@keyframes fadein {
+  0% { opacity: 0 }
+  100% { opacity: 1}
+}
+
 .image-loader-container {
   height: 100%;
   width: 100%;
@@ -7,6 +12,7 @@
 
 .background-image {
   flex: 1;
+  animation: fadein .5s linear;
 }
 
 @media(min-width: 768px) {

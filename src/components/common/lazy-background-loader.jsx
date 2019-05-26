@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable react/require-default-props */
 /* eslint-disable react/forbid-prop-types */
 import React, { Component } from 'react';
@@ -15,26 +16,23 @@ class LazyBackground extends Component {
     this.setBackgroundImageRef = (element) => {
       this.backgroundImageRef = element;
     };
+    this._imageLoader = null;
   }
 
   componentDidMount() {
-    const { src } = this.props;
-
-    const imageLoader = new Image();
-    imageLoader.src = src;
-
-    imageLoader.onload = () => {
-      this.backgroundImageRef.animate([
-        { // from
-          opacity: 0,
-        },
-        { // to
-          opacity: 1,
-        },
-      ], { duration: 500, easing: 'linear' });
-      this.setState({ isLoading: false });
-    };
+    if (this.backgroundImageRef.style.backgroundImage) {
+      const url = this.backgroundImageRef.style.backgroundImage.match(/\((.*?)\)/)[1].replace(/('|")/g, '');
+      this._imageLoader = new Image();
+      this._imageLoader.onload = () => {
+        this.setState({ isLoading: false });
+      };
+      this._imageLoader.src = url;
+    }
   }
+
+  // componentWillUnmount() {
+  //   this._imageLoader.onload = null;
+  // }
 
   render() {
     const { src } = this.props;
