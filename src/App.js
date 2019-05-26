@@ -11,17 +11,6 @@ import Nav from './components/nav';
 import Routes from './enums/routes';
 
 class App extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-
-  //   }
-  // }
-
-  // componentDidUpdate() {
-  //   console.log(window.location);
-  // }
-
   render() {
     const containerStyle = {
       backgroundImage: `url(${process.env.PUBLIC_URL}/Website_backgroundv8.jpg)`,
@@ -39,31 +28,43 @@ class App extends Component {
         <div className="app-container" style={appContainerStyle}>
           <Router>  
             <Nav />
-            <div className="content-container">
             <Route 
-              render={({ location }) => (
-                <div className="full-page">
-                  <TransitionGroup>
-                    <CSSTransition
-                      key={location.key}
-                      timeout={300}
-                      classNames="content-page"
-                    >
-                      <Switch location={location}>
-                        {Routes.map(({ path, Component }) => (
-                          <Route key={path} exact path={path}>
-                            <div className="content-page">
-                              <Component />
-                            </div>
-                          </Route>
-                        ))}
-                      </Switch>
-                    </CSSTransition>
-                  </TransitionGroup>
-                </div>
-              )}
+              render={({ location }) => {
+                const fullPageStyle = {
+                  display: 'flex',
+                };
+                const contentPageStyle = {
+                  display: 'flex',
+                  justifyContent: 'center',
+                  width: '100%',
+                };
+                if (location.pathname === '/' || location.pathname === '/story' || location.pathname === '/gallery') {
+                  contentPageStyle.flex = '1';
+                  fullPageStyle.flex = '1';
+                }
+                return (
+                  <div className="full-page" style={fullPageStyle}>
+                    <TransitionGroup>
+                      <CSSTransition
+                        key={location.key}
+                        timeout={300}
+                        classNames="content-page"
+                      >
+                        <Switch location={location}>
+                          {Routes.map(({ path, Component }) => (
+                            <Route key={path} exact path={path}>
+                              <div className="content-page" style={contentPageStyle}>
+                                <Component />
+                              </div>
+                            </Route>
+                          ))}
+                        </Switch>
+                      </CSSTransition>
+                    </TransitionGroup>
+                  </div>
+                );
+              }}
             />
-            </div>
           </Router>
         </div>
       </div>

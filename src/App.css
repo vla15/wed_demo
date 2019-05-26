@@ -1,6 +1,9 @@
 @media(max-width: 767px) {
   .app-background {
     background-size: 140%;
+    background-attachment: initial;
+    height: auto;
+    width: 100%;
   }
 }
 
@@ -10,10 +13,10 @@
   }
 }
 
-.content-container, .content-page {
+.content-container {
   display: flex;
-  flex: 1;
-  height: 100%;
+  /* flex: 1; */
+  justify-content: center;
 }
 
 .content-page-enter {
@@ -43,12 +46,7 @@
   transition: opacity 200ms, transform 200ms;
 }
 
-.full-page {
-  height: 100%;
-  width: 100%;
-}
-
 .full-page > div {
-  height: 100%;
   display: flex;
+  flex: 1
 }

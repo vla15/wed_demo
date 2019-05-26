@@ -25,8 +25,8 @@ class GalleryPage extends Component {
       return i;
     });
     return (
-      <div className="non-splash-container">
-        <h2>Gallery</h2>
+      <div>
+        <h2 style={{ textAlign: 'center' }}>Gallery</h2>
         <Gallery images={images} backdropClosesModal />
       </div>
     );

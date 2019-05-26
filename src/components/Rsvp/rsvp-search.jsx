@@ -113,8 +113,6 @@ class RSVPSearch extends Component {
     const { firstName, lastName, isLoading } = this.state;
     const spinnerStyle = {
       backgroundColor: 'transparent',
-      height: '100%',
-      width: '100%',
       alignItems: 'flex-start',
     };
     const containerStyle = {

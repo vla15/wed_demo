@@ -25,7 +25,6 @@
 
 @media(max-width: 767px) {
   .rsvp-form-container {
-    max-height: 100%;
     max-width: 80%;
     flex: 1;
     background-position: unset !important;

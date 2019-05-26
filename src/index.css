@@ -1,9 +1,17 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 html, body, #root, #root>div {
   font-family: 'Poiret One', cursive !important;
   font-weight: bold;
+  /* min-height: 100vh; */
 }
 
 body {
+  /* min-height: 100vh; */
   /* margin: 0;
   padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -19,9 +27,9 @@ code {
 }
 
 .non-splash-container {
-  height: 100%;
+  display: flex;
   width: 100%;
-  padding: 1rem;
+  justify-content: center;
 }
 
 .btn:not(disabled).btn:hover, .btn:not(disabled).btn:focus {
@@ -36,12 +44,6 @@ code {
     left: 0;
     right: 0;
     background: linear-gradient(to bottom,transparent 0,transparent 40%,rgba(0,0,0,.4) 100%);
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
 }
 
 html {
