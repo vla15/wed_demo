@@ -38,7 +38,7 @@ class RSVPSearch extends Component {
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     this.handleReservation = this.handleReservation.bind(this);
-    this.addGuest = this.addGuest.bind(this);
+    // this.addGuest = this.addGuest.bind(this);
   }
 
   onChange(e) {
@@ -54,7 +54,7 @@ class RSVPSearch extends Component {
     try {
       const guests = await getGuestsByName(firstName, lastName);
       // eslint-disable-next-line no-unneeded-ternary
-      const noResults = guests.length ? true : false;
+      const noResults = guests.length ? false : true;
       this.setState({ matchedGuests: guests, isLoading: false, noResults });
     } catch (err) {
       this.setState({ noResults: true, isLoading: false });
@@ -92,20 +92,20 @@ class RSVPSearch extends Component {
     return <ul className="guest-list-container list-group">{list}</ul>;
   }
 
-  addGuest() {
-    this.setState((prevState) => {
-      const matchedGuests = prevState.matchedGuests.slice(0);
-      matchedGuests.push({
-        ref: 123892139128312,
-        guests: 2,
-        first: 'Susana',
-        last: 'Lee',
-        full: 'Susana Lee',
-        isReserved: false,
-      });
-      return { matchedGuests };
-    });
-  }
+  // addGuest() {
+  //   this.setState((prevState) => {
+  //     const matchedGuests = prevState.matchedGuests.slice(0);
+  //     matchedGuests.push({
+  //       ref: 123892139128312,
+  //       guests: 2,
+  //       first: 'Susana',
+  //       last: 'Lee',
+  //       full: 'Susana Lee',
+  //       isReserved: false,
+  //     });
+  //     return { matchedGuests };
+  //   });
+  // }
 
 
   render() {
@@ -153,7 +153,6 @@ class RSVPSearch extends Component {
             </div>
             <div className="rsvp-form-btn">
               <button className="btn btn-primary" type="submit">Search</button>
-              <button onClick={this.addGuest} className="btn btn-primary" type="button">Add Guest</button>
             </div>
           </form>
           {isLoading ? <Spinner style={spinnerStyle} /> : ''}
@@ -163,5 +162,7 @@ class RSVPSearch extends Component {
     );
   }
 }
+
+// <button onClick={this.addGuest} className="btn btn-primary" type="button">Add Guest</button>
 
 export default RSVPSearch;
