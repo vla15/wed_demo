@@ -67,7 +67,7 @@ class Story extends Component {
             </div>
             <div className="back story-text-container">
               {this.getStoryText(backTextStyling)}
-              <div className="story-overlay" />
+              <div className="grey-overlay" />
             </div>
           </div>
         </div>
@@ -79,7 +79,7 @@ class Story extends Component {
     const src = '/splash.jpeg';
     return (
       <div className="story-container">
-        <div className="story-overlay" />
+        <div className="grey-overlay" />
         <div className="story-image-container">
           <LazyBackground src={src} />
         </div>

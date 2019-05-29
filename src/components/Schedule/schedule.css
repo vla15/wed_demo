@@ -1,0 +1,15 @@
+.schedule-container {
+  color: #e2e4e9;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+.schedule-container * {
+  z-index: 1;
+}
+
+.schedule-content {
+  padding: 2rem;
+}
