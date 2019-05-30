@@ -33,7 +33,7 @@ const Schedule = () => (
             width: '70vw', height: '40vh', border: 0, marginBottom: '1rem',
           }}
           frameBorder="0"
-          src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJ1QGSEP-Nj4AR0vJH0krIMBY&key=AIzaSyBnwtjC_TSlRgvYo0x_TLX6JhJn7z3evhg"
+          src={`https://www.google.com/maps/embed/v1/place?q=place_id:ChIJ1QGSEP-Nj4AR0vJH0krIMBY&key=${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}`}
           allowfullscreen
         />
         <div>If you are not planning on driving, we strongly suggest arranging transit home beforehand as cell service is spotty at the venue. There is wifi on premise.  </div>
