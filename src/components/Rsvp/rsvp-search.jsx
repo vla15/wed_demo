@@ -38,6 +38,7 @@ class RSVPSearch extends Component {
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     this.handleReservation = this.handleReservation.bind(this);
+    // this.addGuest = this.addGuest.bind(this);
   }
 
   onChange(e) {
@@ -53,7 +54,7 @@ class RSVPSearch extends Component {
     try {
       const guests = await getGuestsByName(firstName, lastName);
       // eslint-disable-next-line no-unneeded-ternary
-      const noResults = guests.length ? true : false;
+      const noResults = guests.length ? false : true;
       this.setState({ matchedGuests: guests, isLoading: false, noResults });
     } catch (err) {
       this.setState({ noResults: true, isLoading: false });
@@ -93,7 +94,8 @@ class RSVPSearch extends Component {
 
   // addGuest() {
   //   this.setState((prevState) => {
-  //     const matchedGuests = prevState.matchedGuests.slice(0).push({
+  //     const matchedGuests = prevState.matchedGuests.slice(0);
+  //     matchedGuests.push({
   //       ref: 123892139128312,
   //       guests: 2,
   //       first: 'Susana',
@@ -111,8 +113,6 @@ class RSVPSearch extends Component {
     const { firstName, lastName, isLoading } = this.state;
     const spinnerStyle = {
       backgroundColor: 'transparent',
-      height: '100%',
-      width: '100%',
       alignItems: 'flex-start',
     };
     const containerStyle = {

@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import Gallery from 'react-grid-gallery';
 import Images from '../../enums/images';
+import './gallery.css';
 
 class GalleryPage extends Component {
   render() {
@@ -25,9 +26,16 @@ class GalleryPage extends Component {
       return i;
     });
     return (
-      <div className="non-splash-container">
-        <h2>Gallery</h2>
-        <Gallery images={images} backdropClosesModal />
+      <div>
+        <div style={{
+          textAlign: 'center', color: '#e2e4e9', fontSize: '2rem', padding: '2rem',
+        }}
+        >
+          Gallery
+        </div>
+        <div>
+          <Gallery images={images} backdropClosesModal />
+        </div>
       </div>
     );
   }

@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable react/prop-types */
 import React, { Component } from 'react';
 import './nav.css';
@@ -45,7 +47,7 @@ class Nav extends Component {
               {Routes.map(({ path, title }) => {
                 const isActive = path === location.pathname ? 'active' : '';
                 return (
-                  <li className={`nav-item ${isActive}`} key={path}>
+                  <li className={`nav-item ${isActive}`} key={path} onClick={this.onClick}>
                     <Link to={path} className="nav-link">{title}</Link>
                   </li>
                 );

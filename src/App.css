@@ -1,6 +1,9 @@
 @media(max-width: 767px) {
   .app-background {
     background-size: 140%;
+    background-attachment: initial;
+    height: auto;
+    width: 100%;
   }
 }
 
@@ -10,9 +13,10 @@
   }
 }
 
-.content-container, .content-page {
+.content-container {
   display: flex;
-  flex: 1;
+  /* flex: 1; */
+  justify-content: center;
 }
 
 .content-page-enter {
@@ -42,12 +46,25 @@
   transition: opacity 200ms, transform 200ms;
 }
 
-.full-page {
-  height: 100%;
-  width: 100%;
+.full-page > div {
+  display: flex;
+  flex: 1
 }
 
-.full-page > div {
+.grey-overlay {
+  position: absolute;
+  opacity: 0.5;
+  background: grey;
   height: 100%;
-  display: flex;
+  width: 100%;
+  z-index: 0 !important;
+}
+
+.section-header {
+  text-align: center;
+}
+
+.text-content-section {
+  margin-bottom: 2rem;
+  color: #e2e4e9;
 }

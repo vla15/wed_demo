@@ -11,8 +11,8 @@ const Images = [
     thumbnail: 'https://live.staticflickr.com/65535/32884596257_d5e1282185_k.jpg',
     thumbnailWidth: 1536,
     thumbnailHeight: 2048,
-    tags: [{ value: 'Ocean', title: 'Ocean' }, { value: 'People', title: 'People' }],
-    caption: 'Boats (Jeshu John - designerspics.com)',
+    tags: [{ value: 'Warriors', title: 'Warriors' }, { value: 'Playoffs', title: 'Playoffs' }],
+    caption: 'Round 1 Playoffs game against Portland',
   },
   {
     src: 'https://live.staticflickr.com/65535/40861896693_74a6547686_k.jpg',
@@ -184,9 +184,6 @@ const Images = [
   },
   {
     src: 'https://live.staticflickr.com/65535/32892878567_c2741aec67_b.jpg', thumbnail: 'https://live.staticflickr.com/65535/32892878567_c2741aec67_b.jpg', thumbnailWidth: 1024, thumbnailHeight: 1024,
-  },
-  {
-    src: 'https://live.staticflickr.com/65535/33959470788_4e8a0b74de_b.jpg', thumbnail: 'https://live.staticflickr.com/65535/33959470788_4e8a0b74de_b.jpg', thumbnailWidth: 1024, thumbnailHeight: 1024,
   },
   {
     src: 'https://live.staticflickr.com/65535/47836858481_2cc8fc92e8_b.jpg', thumbnail: 'https://live.staticflickr.com/65535/47836858481_2cc8fc92e8_b.jpg', thumbnailWidth: 768, thumbnailHeight: 1024,

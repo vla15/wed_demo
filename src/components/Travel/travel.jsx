@@ -1,6 +1,6 @@
 import React from 'react';
 
-const FAQ = () => (
+const Travel = () => (
   <div className="non-splash-container">
     <div style={{
       display: 'flex', justifyContent: 'center', flexDirection: 'column', padding: '2rem',
@@ -14,4 +14,4 @@ const FAQ = () => (
   </div>
 );
 
-export default FAQ;
+export default Travel;

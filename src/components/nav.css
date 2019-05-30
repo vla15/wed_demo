@@ -41,6 +41,9 @@
 }
 
 @media(max-width: 767px) {
+  .navbar-container {
+    z-index: 5;
+  }
   .navbar-name-header {
     display: none;
   }
