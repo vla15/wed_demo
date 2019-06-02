@@ -1,3 +1,10 @@
 [build]
   functions = "functions/guests"
   publish = "build"
+  command = "npm run build"
+
+[context.production.environment]
+  FAUNADB_SERVER_SECRET="fnADOjrX9pACCWKtuECTGteeeG6rlRr1mezBEg0U"
+
+[context.deploy-preview]
+  FAUNADB_SERVER_SECRET="fnADOjrX9pACCWKtuECTGteeeG6rlRr1mezBEg0U"

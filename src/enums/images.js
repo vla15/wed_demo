@@ -1,215 +1,95 @@
-const Images = [
+const OurLivesMoments = [
   {
-    src: 'https://live.staticflickr.com/65535/46912203865_7d43e5ed1f_k.jpg',
-    thumbnail: 'https://live.staticflickr.com/65535/46912203865_7d43e5ed1f_k.jpg',
-    thumbnailWidth: 1536,
-    thumbnailHeight: 2048,
-    caption: 'Betty be biggggg',
+    src: 'https://live.staticflickr.com/65535/47981726873_edf3b7ef33_o.jpg',
+    thumbnail: 'https://live.staticflickr.com/65535/47981726873_edf3b7ef33_o.jpg',
+    thumbnailWidth: 1932,
+    thumbnailHeight: 2576,
+    // tags: [{ value: 'Warriors', title: 'Warriors' }, { value: 'Playoffs', title: 'Playoffs' }],
+    // caption: 'Round 1 Playoffs game against Portland',
   },
   {
-    src: 'https://live.staticflickr.com/65535/32884596257_d5e1282185_k.jpg',
-    thumbnail: 'https://live.staticflickr.com/65535/32884596257_d5e1282185_k.jpg',
-    thumbnailWidth: 1536,
-    thumbnailHeight: 2048,
-    tags: [{ value: 'Warriors', title: 'Warriors' }, { value: 'Playoffs', title: 'Playoffs' }],
-    caption: 'Round 1 Playoffs game against Portland',
+    src: 'https://live.staticflickr.com/65535/47981727073_34931f3f39_o.jpg', thumbnail: 'https://live.staticflickr.com/65535/47981727073_34931f3f39_o.jpg', thumbnailWidth: 1200, thumbnailHeight: 1600,
   },
   {
-    src: 'https://live.staticflickr.com/65535/40861896693_74a6547686_k.jpg',
-    thumbnail: 'https://live.staticflickr.com/65535/40861896693_74a6547686_k.jpg',
-    thumbnailWidth: 1536,
-    thumbnailHeight: 2048,
+    src: 'https://live.staticflickr.com/65535/47981729387_c50b0f7c9d_o.jpg', thumbnail: 'https://live.staticflickr.com/65535/47981729387_c50b0f7c9d_o.jpg', thumbnailWidth: 1932, thumbnailHeight: 2576,
   },
   {
-    src: 'https://live.staticflickr.com/65535/32884595077_c458f13076_k.jpg',
-    thumbnail: 'https://live.staticflickr.com/65535/32884595077_c458f13076_k.jpg',
-    thumbnailWidth: 1536,
-    thumbnailHeight: 2048,
+    src: 'https://live.staticflickr.com/65535/47981779466_8dbc9eeaaa_o.jpg', thumbnail: 'https://live.staticflickr.com/65535/47981779466_8dbc9eeaaa_o.jpg', thumbnailWidth: 1932, thumbnailHeight: 2576,
   },
   {
-    src: 'https://live.staticflickr.com/65535/40861896123_e846170fab_k.jpg',
-    thumbnail: 'https://live.staticflickr.com/65535/40861896123_e846170fab_k.jpg',
-    thumbnailWidth: 1536,
-    thumbnailHeight: 2048,
+    src: 'https://live.staticflickr.com/65535/47981779431_d0a5d84832_o.jpg', thumbnail: 'https://live.staticflickr.com/65535/47981779431_d0a5d84832_o.jpg', thumbnailWidth: 1932, thumbnailHeight: 2576,
   },
   {
-    src: 'https://live.staticflickr.com/65535/32884598097_32549cb733_k.jpg',
-    thumbnail: 'https://live.staticflickr.com/65535/32884598097_32549cb733_k.jpg',
-    thumbnailWidth: 2048,
-    thumbnailHeight: 1536,
+    src: 'https://live.staticflickr.com/65535/47981726693_36672d8199_o.jpg', thumbnail: 'https://live.staticflickr.com/65535/47981726693_36672d8199_o.jpg', thumbnailWidth: 3024, thumbnailHeight: 4032,
   },
   {
-    src: 'https://live.staticflickr.com/65535/47038814574_3556cca700_k.jpg',
-    thumbnail: 'https://live.staticflickr.com/65535/47038814574_3556cca700_k.jpg',
-    thumbnailWidth: 1536,
-    thumbnailHeight: 2048,
+    src: 'https://live.staticflickr.com/65535/47981729192_fd9db2d12e_o.jpg', thumbnail: 'https://live.staticflickr.com/65535/47981729192_fd9db2d12e_o.jpg', thumbnailWidth: 3024, thumbnailHeight: 4032,
   },
   {
-    src: 'https://live.staticflickr.com/65535/32884597987_a7c899bec1_k.jpg',
-    thumbnail: 'https://live.staticflickr.com/65535/32884597987_a7c899bec1_k.jpg',
-    thumbnailWidth: 2048,
-    thumbnailHeight: 1536,
+    src: 'https://live.staticflickr.com/65535/47981729177_31cf1ebf81_o.jpg', thumbnail: 'https://live.staticflickr.com/65535/47981729177_31cf1ebf81_o.jpg', thumbnailWidth: 3024, thumbnailHeight: 4032,
   },
   {
-    src: 'https://live.staticflickr.com/65535/47038814254_758833a5d6_k.jpg',
-    thumbnail: 'https://live.staticflickr.com/65535/47038814254_758833a5d6_k.jpg',
-    thumbnailWidth: 2048,
-    thumbnailHeight: 1536,
+    src: 'https://live.staticflickr.com/65535/47981729587_313c58f5c2_o.jpg', thumbnail: 'https://live.staticflickr.com/65535/47981729587_313c58f5c2_o.jpg', thumbnailWidth: 4032, thumbnailHeight: 3024,
   },
   {
-    src: 'https://live.staticflickr.com/65535/32884597867_141673fba8_k.jpg',
-    thumbnail: 'https://live.staticflickr.com/65535/32884597867_141673fba8_k.jpg',
-    thumbnailWidth: 2048,
-    thumbnailHeight: 1536,
+    src: 'https://live.staticflickr.com/65535/47981726363_ce4b0b8de5_o.jpg', thumbnail: 'https://live.staticflickr.com/65535/47981726363_ce4b0b8de5_o.jpg', thumbnailWidth: 3024, thumbnailHeight: 4032,
   },
   {
-    src: 'https://live.staticflickr.com/65535/46912202035_1f5fa85f17_k.jpg',
-    thumbnail: 'https://live.staticflickr.com/65535/46912202035_1f5fa85f17_k.jpg',
-    thumbnailWidth: 1536,
-    thumbnailHeight: 2048,
+    src: 'https://live.staticflickr.com/65535/47981729492_9b7812b4f3_o.jpg', thumbnail: 'https://live.staticflickr.com/65535/47981729492_9b7812b4f3_o.jpg', thumbnailWidth: 4032, thumbnailHeight: 3024,
   },
   {
-    src: 'https://live.staticflickr.com/65535/47038813844_c7eb8957ca_k.jpg',
-    thumbnail: 'https://live.staticflickr.com/65535/47038813844_c7eb8957ca_k.jpg',
-    thumbnailWidth: 1536,
-    thumbnailHeight: 2048,
+    src: 'https://live.staticflickr.com/65535/47981779141_b5f5f89323_o.jpg', thumbnail: 'https://live.staticflickr.com/65535/47981779141_b5f5f89323_o.jpg', thumbnailWidth: 1932, thumbnailHeight: 2576,
   },
   {
-    src: 'https://live.staticflickr.com/65535/33951101888_118a9d7fde_k.jpg',
-    thumbnail: 'https://live.staticflickr.com/65535/33951101888_118a9d7fde_k.jpg',
-    thumbnailWidth: 1536,
-    thumbnailHeight: 2048,
+    src: 'https://live.staticflickr.com/65535/47981726303_ae730010fa_o.jpg', thumbnail: 'https://live.staticflickr.com/65535/47981726303_ae730010fa_o.jpg', thumbnailWidth: 1932, thumbnailHeight: 2576,
   },
   {
-    src: 'https://live.staticflickr.com/65535/47038813554_44abaa4f88_k.jpg',
-    thumbnail: 'https://live.staticflickr.com/65535/47038813554_44abaa4f88_k.jpg',
-    thumbnailWidth: 1536,
-    thumbnailHeight: 2048,
+    src: 'https://live.staticflickr.com/65535/47981779056_1d6ba84b95_o.jpg', thumbnail: 'https://live.staticflickr.com/65535/47981779056_1d6ba84b95_o.jpg', thumbnailWidth: 3024, thumbnailHeight: 4032,
   },
   {
-    src: 'https://live.staticflickr.com/65535/46912204245_ea1497814d_k.jpg',
-    thumbnail: 'https://live.staticflickr.com/65535/46912204245_ea1497814d_k.jpg',
-    thumbnailWidth: 1536,
-    thumbnailHeight: 2048,
+    src: 'https://live.staticflickr.com/65535/47981728887_d0afa52286_o.jpg', thumbnail: 'https://live.staticflickr.com/65535/47981728887_d0afa52286_o.jpg', thumbnailWidth: 3024, thumbnailHeight: 4032,
   },
   {
-    src: 'https://live.staticflickr.com/65535/46912204005_801070301b_k.jpg',
-    thumbnail: 'https://live.staticflickr.com/65535/46912204005_801070301b_k.jpg',
-    thumbnailWidth: 1536,
-    thumbnailHeight: 2048,
+    src: 'https://live.staticflickr.com/65535/47981726118_fae393f0ce_o.jpg', thumbnail: 'https://live.staticflickr.com/65535/47981726118_fae393f0ce_o.jpg', thumbnailWidth: 3024, thumbnailHeight: 4032,
   },
   {
-    src: 'https://live.staticflickr.com/65535/40861896963_19286b1aeb_k.jpg',
-    thumbnail: 'https://live.staticflickr.com/65535/40861896963_19286b1aeb_k.jpg',
-    thumbnailWidth: 2048,
-    thumbnailHeight: 1536,
+    src: 'https://live.staticflickr.com/65535/47981729462_99b1592065_o.jpg', thumbnail: 'https://live.staticflickr.com/65535/47981729462_99b1592065_o.jpg', thumbnailWidth: 1931, thumbnailHeight: 2415,
   },
   {
-    src: 'https://live.staticflickr.com/65535/32884596017_7036d89c41_k.jpg',
-    thumbnail: 'https://live.staticflickr.com/65535/32884596017_7036d89c41_k.jpg',
-    thumbnailWidth: 1536,
-    thumbnailHeight: 2048,
+    src: 'https://live.staticflickr.com/65535/47981726063_f9d1715e45_o.jpg', thumbnail: 'https://live.staticflickr.com/65535/47981726063_f9d1715e45_o.jpg', thumbnailWidth: 4032, thumbnailHeight: 3024,
   },
   {
-    src: 'https://live.staticflickr.com/65535/47828291721_29e0dceb37_h.jpg',
-    thumbnail: 'https://live.staticflickr.com/65535/47828291721_29e0dceb37_h.jpg',
-    thumbnailWidth: 1200,
-    thumbnailHeight: 1600,
+    src: 'https://live.staticflickr.com/65535/47981728697_e150e973d6_o.jpg', thumbnail: 'https://live.staticflickr.com/65535/47981728697_e150e973d6_o.jpg', thumbnailWidth: 1932, thumbnailHeight: 2576,
   },
   {
-    src: 'https://live.staticflickr.com/65535/40861894663_ebdfccfc47_h.jpg',
-    thumbnail: 'https://live.staticflickr.com/65535/40861894663_ebdfccfc47_h.jpg',
-    thumbnailWidth: 900,
-    thumbnailHeight: 1600,
+    src: 'https://live.staticflickr.com/65535/47981728672_2ae6752b37_o.jpg', thumbnail: 'https://live.staticflickr.com/65535/47981728672_2ae6752b37_o.jpg', thumbnailWidth: 1932, thumbnailHeight: 2576,
   },
   {
-    src: 'https://live.staticflickr.com/65535/47038813384_a5b3eb5350_b.jpg', thumbnail: 'https://live.staticflickr.com/65535/47038813384_a5b3eb5350_b.jpg', thumbnailWidth: 1024, thumbnailHeight: 1019,
+    src: 'https://live.staticflickr.com/31337/47981778731_3dfb0af593_o.jpg', thumbnail: 'https://live.staticflickr.com/31337/47981778731_3dfb0af593_o.jpg', thumbnailWidth: 576, thumbnailHeight: 720,
   },
   {
-    src: 'https://live.staticflickr.com/65535/47039452974_9e3af2aa6f_b.jpg', thumbnail: 'https://live.staticflickr.com/65535/47039452974_9e3af2aa6f_b.jpg', thumbnailWidth: 683, thumbnailHeight: 1024,
+    src: 'https://live.staticflickr.com/65535/47981778696_3ce55c1ef9_o.jpg', thumbnail: 'https://live.staticflickr.com/65535/47981778696_3ce55c1ef9_o.jpg', thumbnailWidth: 3024, thumbnailHeight: 4032,
+  },
+];
+
+// const OurLivesMoments = [];
+const EngagementMoments = [
+  {
+    src: 'https://live.staticflickr.com/65535/47981938351_affe24ec83_o.jpg', thumbnail: 'https://live.staticflickr.com/65535/47981938351_affe24ec83_o.jpg', thumbnailWidth: 1080, thumbnailHeight: 1080,
   },
   {
-    src: 'https://live.staticflickr.com/65535/47828935321_07232cb214_b.jpg', thumbnail: 'https://live.staticflickr.com/65535/47828935321_07232cb214_b.jpg', thumbnailWidth: 1024, thumbnailHeight: 683,
+    src: 'https://live.staticflickr.com/65535/47981891542_f979cc8c33_o.jpg', thumbnail: 'https://live.staticflickr.com/65535/47981891542_f979cc8c33_o.jpg', thumbnailWidth: 1080, thumbnailHeight: 1080,
   },
   {
-    src: 'https://live.staticflickr.com/65535/47828935481_083a411876_b.jpg', thumbnail: 'https://live.staticflickr.com/65535/47828935481_083a411876_b.jpg', thumbnailWidth: 1024, thumbnailHeight: 683,
+    src: 'https://live.staticflickr.com/65535/47981887518_9fccbc1a55_o.jpg', thumbnail: 'https://live.staticflickr.com/65535/47981887518_9fccbc1a55_o.jpg', thumbnailWidth: 3446, thumbnailHeight: 4643,
   },
   {
-    src: 'https://live.staticflickr.com/65535/47039453394_31e50d37e6_b.jpg', thumbnail: 'https://live.staticflickr.com/65535/47039453394_31e50d37e6_b.jpg', thumbnailWidth: 1024, thumbnailHeight: 683,
+    src: 'https://live.staticflickr.com/65535/47981891522_90688921bc_o.jpg', thumbnail: 'https://live.staticflickr.com/65535/47981891522_90688921bc_o.jpg', thumbnailWidth: 1600, thumbnailHeight: 900,
   },
   {
-    src: 'https://live.staticflickr.com/65535/33951708128_2c7eca501e_b.jpg', thumbnail: 'https://live.staticflickr.com/65535/33951708128_2c7eca501e_b.jpg', thumbnailWidth: 683, thumbnailHeight: 1024,
-  },
-  {
-    src: 'https://live.staticflickr.com/65535/46912793315_8856859c07_b.jpg', thumbnail: 'https://live.staticflickr.com/65535/46912793315_8856859c07_b.jpg', thumbnailWidth: 1024, thumbnailHeight: 683,
-  },
-  {
-    src: 'https://live.staticflickr.com/65535/47828935611_f01aa52760_b.jpg', thumbnail: 'https://live.staticflickr.com/65535/47828935611_f01aa52760_b.jpg', thumbnailWidth: 1024, thumbnailHeight: 683,
-  },
-  {
-    src: 'https://live.staticflickr.com/65535/47039453524_194de44671_b.jpg', thumbnail: 'https://live.staticflickr.com/65535/47039453524_194de44671_b.jpg', thumbnailWidth: 683, thumbnailHeight: 1024,
-  },
-  {
-    src: 'https://live.staticflickr.com/65535/33951708308_43272a7265_b.jpg', thumbnail: 'https://live.staticflickr.com/65535/33951708308_43272a7265_b.jpg', thumbnailWidth: 683, thumbnailHeight: 1024,
-  },
-  {
-    src: 'https://live.staticflickr.com/65535/46912793535_de8213740e_b.jpg', thumbnail: 'https://live.staticflickr.com/65535/46912793535_de8213740e_b.jpg', thumbnailWidth: 683, thumbnailHeight: 1024,
-  },
-  {
-    src: 'https://live.staticflickr.com/65535/47039453694_b371fa4a1c_b.jpg', thumbnail: 'https://live.staticflickr.com/65535/47039453694_b371fa4a1c_b.jpg', thumbnailWidth: 683, thumbnailHeight: 1024,
-  },
-  {
-    src: 'https://live.staticflickr.com/65535/47828935731_dbe6fbb460_b.jpg', thumbnail: 'https://live.staticflickr.com/65535/47828935731_dbe6fbb460_b.jpg', thumbnailWidth: 1024, thumbnailHeight: 683,
-  },
-  {
-    src: 'https://live.staticflickr.com/65535/40862485573_81fc8157fd_b.jpg', thumbnail: 'https://live.staticflickr.com/65535/40862485573_81fc8157fd_b.jpg', thumbnailWidth: 1024, thumbnailHeight: 683,
-  },
-  {
-    src: 'https://live.staticflickr.com/65535/33959470598_98b0c57dca_b.jpg', thumbnail: 'https://live.staticflickr.com/65535/33959470598_98b0c57dca_b.jpg', thumbnailWidth: 1024, thumbnailHeight: 768,
-  },
-  {
-    src: 'https://live.staticflickr.com/65535/47836858151_b7d5e513be_b.jpg', thumbnail: 'https://live.staticflickr.com/65535/47836858151_b7d5e513be_b.jpg', thumbnailWidth: 960, thumbnailHeight: 960,
-  },
-  {
-    src: 'https://live.staticflickr.com/65535/33959470728_0ef396380f_b.jpg', thumbnail: 'https://live.staticflickr.com/65535/33959470728_0ef396380f_b.jpg', thumbnailWidth: 768, thumbnailHeight: 1024,
-  },
-  {
-    src: 'https://live.staticflickr.com/65535/47836858321_eca4200b58_b.jpg', thumbnail: 'https://live.staticflickr.com/65535/47836858321_eca4200b58_b.jpg', thumbnailWidth: 768, thumbnailHeight: 1024,
-  },
-  {
-    src: 'https://live.staticflickr.com/65535/47836858021_a8b5f7d006_b.jpg', thumbnail: 'https://live.staticflickr.com/65535/47836858021_a8b5f7d006_b.jpg', thumbnailWidth: 1024, thumbnailHeight: 1024,
-  },
-  {
-    src: 'https://live.staticflickr.com/65535/33959470748_53c72c156d_b.jpg', thumbnail: 'https://live.staticflickr.com/65535/33959470748_53c72c156d_b.jpg', thumbnailWidth: 1024, thumbnailHeight: 1024,
-  },
-  {
-    src: 'https://live.staticflickr.com/65535/32892878567_c2741aec67_b.jpg', thumbnail: 'https://live.staticflickr.com/65535/32892878567_c2741aec67_b.jpg', thumbnailWidth: 1024, thumbnailHeight: 1024,
-  },
-  {
-    src: 'https://live.staticflickr.com/65535/47836858481_2cc8fc92e8_b.jpg', thumbnail: 'https://live.staticflickr.com/65535/47836858481_2cc8fc92e8_b.jpg', thumbnailWidth: 768, thumbnailHeight: 1024,
-  },
-  {
-    src: 'https://live.staticflickr.com/65535/32892878687_49d3e3027e_b.jpg', thumbnail: 'https://live.staticflickr.com/65535/32892878687_49d3e3027e_b.jpg', thumbnailWidth: 768, thumbnailHeight: 1024,
-  },
-  {
-    src: 'https://live.staticflickr.com/65535/33959470658_020de2f29d_b.jpg', thumbnail: 'https://live.staticflickr.com/65535/33959470658_020de2f29d_b.jpg', thumbnailWidth: 1024, thumbnailHeight: 768,
-  },
-  {
-    src: 'https://live.staticflickr.com/65535/33959470868_1b677ee118_b.jpg', thumbnail: 'https://live.staticflickr.com/65535/33959470868_1b677ee118_b.jpg', thumbnailWidth: 768, thumbnailHeight: 1024,
-  },
-  {
-    src: 'https://live.staticflickr.com/65535/33959470878_97ecbbc334_b.jpg', thumbnail: 'https://live.staticflickr.com/65535/33959470878_97ecbbc334_b.jpg', thumbnailWidth: 960, thumbnailHeight: 960,
-  },
-  {
-    src: 'https://live.staticflickr.com/65535/47836858561_532c3a242e_b.jpg', thumbnail: 'https://live.staticflickr.com/65535/47836858561_532c3a242e_b.jpg', thumbnailWidth: 1024, thumbnailHeight: 768,
-  },
-  {
-    src: 'https://live.staticflickr.com/65535/32892878857_e7b9b3e0c7_b.jpg', thumbnail: 'https://live.staticflickr.com/65535/32892878857_e7b9b3e0c7_b.jpg', thumbnailWidth: 768, thumbnailHeight: 1024,
-  },
-  {
-    src: 'https://live.staticflickr.com/65535/33959470948_2a18660bef_b.jpg', thumbnail: 'https://live.staticflickr.com/65535/33959470948_2a18660bef_b.jpg', thumbnailWidth: 768, thumbnailHeight: 1024,
+    src: 'https://live.staticflickr.com/65535/47981891527_9f87676889_o.jpg', thumbnail: 'https://live.staticflickr.com/65535/47981891527_9f87676889_o.jpg', thumbnailWidth: 1932, thumbnailHeight: 2576,
   },
 ];
 
 
-export default Images;
+export { OurLivesMoments, EngagementMoments };
