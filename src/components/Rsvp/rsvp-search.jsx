@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import './rsvp-search.css';
 import RSVPModal from './rsvp';
+import RSVPDecline from './rsvp-decline';
 
 // import Guests from '../../mock-data/guests';
 import { getGuestsByName } from '../../utils/guests';
@@ -30,6 +31,14 @@ class RSVPSearch extends Component {
       //   last: 'Lee',
       //   full: 'Juliana Lee',
       //   isReserved: false,
+      // },
+      // {
+      //   ref: 1202310310,
+      //   guests: 3,
+      //   first: 'sdf',
+      //   last: 'Lee',
+      //   full: 'af Lee',
+      //   isReserved: true,
       // },
       // ],
       noResults: false,
@@ -83,9 +92,14 @@ class RSVPSearch extends Component {
       <li className="guest-list-item list-group-item" key={guest.ref}>
         <div className="guest-name">{guest.full}</div>
         {
-          guest.isReserved
+          guest.isReserved || guest.isDeclined
             ? <div className="guest-rsvp-btn"><button type="button" disabled className="btn btn-primary">Replied</button></div>
-            : <div className="guest-rsvp-btn"><RSVPModal selectedGuest={guest} matchedGuestIndex={i} onReservation={this.handleReservation} /></div>
+            : (
+              <div style={{ display: 'flex', marginLeft: 'auto' }}>
+                <div className="guest-rsvp-btn"><RSVPModal selectedGuest={guest} matchedGuestIndex={i} onReservation={this.handleReservation} /></div>
+                <div className="guest-not-attending-btn"><RSVPDecline selectedGuest={guest} matchedGuestIndex={i} onReservation={this.handleReservation} /></div>
+              </div>
+            )
         }
       </li>
     ));
