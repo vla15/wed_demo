@@ -222,7 +222,7 @@ class RSVPModal extends Component {
           // onAfterOpen={this.afterOpenModal}
           onRequestClose={this.onRequestClose}
           style={customStyles}
-          contentLabel="Example Modal"
+          contentLabel="Faq Modal"
           // eslint-disable-next-line no-return-assign
           overlayRef={overlay => this.overlay = overlay}
         >

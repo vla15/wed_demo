@@ -5,10 +5,10 @@ import './schedule.css';
 
 const Schedule = () => (
   <div
-    className="schedule-container"
+    className="section-container"
   >
     <div className="grey-overlay" />
-    <div className="schedule-content">
+    <div style={{ padding: '2rem', zIndex: 2 }}>
       <div style={{ marginBottom: '1rem' }}>
         <h4 className="section-header">Wedding Day Schedule</h4>
         <h4 className="section-header">婚禮日安排</h4>
