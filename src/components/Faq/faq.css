@@ -1,0 +1,11 @@
+.faq-list-container {
+  list-style: none;
+}
+
+.faq-icon {
+  margin-right: 10px;
+}
+
+.faq-list-item:hover {
+  text-decoration: underline;
+}

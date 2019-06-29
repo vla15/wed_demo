@@ -64,9 +64,11 @@
 
 @media(min-width: 431px) {
   .story-image-container {
-    min-width: 36%;
+    min-width: 45%;
     flex: 1 0;
     display: flex;
     opacity: 0.9;
+    align-items: center;
+    justify-content: center;
   }
 }

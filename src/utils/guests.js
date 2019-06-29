@@ -34,4 +34,19 @@ const updateReservation = async (form) => {
   }
 };
 
-export { getGuests, getGuestsByName, updateReservation };
+const declineReserveration = async (data) => {
+  try {
+    const res = await fetch('/.netlify/functions/update-decline', {
+      method: 'POST',
+      body: JSON.stringify(data),
+    });
+    return res.json();
+  } catch (err) {
+    console.log('error occured while updating the guest reservations', err);
+    return err;
+  }
+};
+
+export {
+  getGuests, getGuestsByName, updateReservation, declineReserveration,
+};

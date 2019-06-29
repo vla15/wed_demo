@@ -68,3 +68,20 @@
   margin-bottom: 2rem;
   color: #e2e4e9;
 }
+
+.section-container {
+  color: #e2e4e9;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
+.info-list-container {
+  margin-left: 15px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}

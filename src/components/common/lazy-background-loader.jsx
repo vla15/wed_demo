@@ -30,10 +30,6 @@ class LazyBackground extends Component {
     }
   }
 
-  // componentWillUnmount() {
-  //   this._imageLoader.onload = null;
-  // }
-
   render() {
     const { src } = this.props;
     const { isLoading } = this.state;

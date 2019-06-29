@@ -4,6 +4,8 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React, { Component } from 'react';
 import LazyBackground from '../common/lazy-background-loader';
+import LazyImage from '../common/lazy-img-loader';
+import ArrowBounce from '../common/arrow-bounce';
 import './story.css';
 
 class Story extends Component {
@@ -60,6 +62,7 @@ class Story extends Component {
     };
     return (
       <div className="story-container">
+        { isClicked ? '' : <ArrowBounce /> }
         <div className={`flipper-container ${isActive}`} onClick={this.onClick}>
           <div className="flipper">
             <div className="front story-image-container">
@@ -81,7 +84,7 @@ class Story extends Component {
       <div className="story-container">
         <div className="grey-overlay" />
         <div className="story-image-container">
-          <LazyBackground src={src} />
+          <LazyImage src={src} />
         </div>
         <div className="story-text-container">
           <div className="story-text">
