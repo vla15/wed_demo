@@ -1,0 +1,29 @@
+@keyframes slide-in-left {
+	0% { transform: translateX(-100%) }
+	100% { transform: translateY(0%) }
+}
+
+@keyframes slide-in-right {
+	0% { transform: translateX(100%) }
+	100% { transform: translateX(0%) }
+}
+
+.wedding-party-item {
+	height: 12rem;
+	border: 1px solid black;
+	background: #FFFFFF;
+}
+
+.wedding-party-visible-left {
+	opacity: 1;
+	animation: slide-in-left 0.5s ease-in;
+}
+
+.wedding-party-visible-right {
+	opacity: 1;
+	animation: slide-in-right 0.5s ease-in;
+}
+
+.not-visible {
+	visibility: hidden;
+}

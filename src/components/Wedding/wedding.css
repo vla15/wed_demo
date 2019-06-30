@@ -1,0 +1,15 @@
+.wedding-party-list-container li {
+	list-style-type: none;
+	width: 100%;
+	margin-top: 4px;
+	margin-bottom: 4px;
+}
+
+.wedding-party-list-container li:nth-child(odd) {
+	display: flex;
+}
+
+.wedding-party-list-container li:nth-child(even) {
+	display: flex;
+	justify-content: flex-end;
+}

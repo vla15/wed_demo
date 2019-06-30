@@ -1,9 +1,8 @@
 .arrow {
   text-align: center;
-  margin: 8% 0;
+  margin: 5% 0;
   position: absolute;
   z-index: 1;
-  top: 5%;
   left: 50%;
 }
 .bounce {
