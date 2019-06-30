@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import './wedding-party-member.css';
 
-function WeddingPartyMember({ index, viewport }) {
+function WeddingPartyMember({ index, viewport, name, content, src }) {
 	const [animationClass, setAnimationClass] = useState();
 	const listRef = useRef(null);
 	useEffect(() => {
@@ -19,7 +19,7 @@ function WeddingPartyMember({ index, viewport }) {
 	})
 	return (
 		<li ref={listRef} className={`wedding-party-item ${animationClass}`}>
-			Item 1
+			<h2>{name}</h2>
 		</li>
 	)
 }
@@ -27,6 +27,9 @@ function WeddingPartyMember({ index, viewport }) {
 WeddingPartyMember.propTypes = {
 	viewport: PropTypes.object,
 	index: PropTypes.number.isRequired,
+	name: PropTypes.string,
+	content: PropTypes.string,
+	src: PropTypes.string,
 }
 
 export default WeddingPartyMember;
