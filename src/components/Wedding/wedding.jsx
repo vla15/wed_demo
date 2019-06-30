@@ -14,10 +14,10 @@ function Wedding() {
 	return (
 		<div className="section-container">
 			<div className="grey-overlay" />
-			<div style={{ display: 'flex', width: '100%', zIndex: 2, padding: '2rem', flexDirection: 'column' }}>
-				<h4 className="section-header">The Wedding Party</h4>
+			<div style={{ display: 'flex', width: '100%', zIndex: 2, flexDirection: 'column' }}>
+				<h4 className="section-header" style={{ marginBottom: '2rem', marginTop: '2rem' }}>The Wedding Party</h4>
 				<LazyImage src={src} />
-				<ul className="wedding-party-list-container">
+				<ul className="wedding-party-list-container" style={{ marginTop: '2rem', padding: '2rem', }}>
 					{weddingComponent}
 				</ul>
 			</div>

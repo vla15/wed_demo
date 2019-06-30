@@ -9,23 +9,24 @@
 }
 
 .wedding-party-item {
-	height: 12rem;
+	visibility: visible;
+	min-height: 12rem;
 	border: 1px solid black;
 	position: relative;
 }
 
 .wedding-party-visible-left {
 	opacity: 1;
-	animation: slide-in-left 0.5s ease-in;
+	animation: slide-in-left 0.3s ease;;
 }
 
 .wedding-party-visible-right {
 	opacity: 1;
-	animation: slide-in-right 0.5s ease-in;
+	animation: slide-in-right 0.3s ease;
 }
 
 .not-visible {
-	visibility: hidden;
+	visibility: hidden !important;
 }
 
 .wedding-party-item-content {

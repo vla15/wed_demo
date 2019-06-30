@@ -9,8 +9,8 @@ function WeddingPartyMember({ index, viewport, name, content, src }) {
 	useEffect(() => {
 		const rect = listRef.current.getBoundingClientRect();
 		const isVisible = !(
-			Math.floor(100 - (((rect.top >= 0 ? 0 : rect.top) / +-(rect.height / 1)) * 100)) < 20 ||
-			Math.floor(100 - ((rect.bottom - viewport.height) / rect.height) * 100) < 20
+			Math.floor(100 - (((rect.top >= 0 ? 0 : rect.top) / +-(rect.height / 1)) * 100)) < 40 ||
+			Math.floor(100 - ((rect.bottom - viewport.height) / rect.height) * 100) < 40
 		  );
 		if (isVisible) {
 			setAnimationClass(isEven ? 'wedding-party-visible-left' : 'wedding-party-visible-right')
