@@ -11,8 +11,7 @@
 .wedding-party-item {
 	height: 12rem;
 	border: 1px solid black;
-	background: #FFFFFF;
-	padding: 1rem;
+	position: relative;
 }
 
 .wedding-party-visible-left {
@@ -27,4 +26,10 @@
 
 .not-visible {
 	visibility: hidden;
+}
+
+.wedding-party-item-content {
+	padding: 1rem;
+	display: flex;
+	width: 100%;
 }
