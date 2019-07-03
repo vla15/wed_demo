@@ -1,17 +1,28 @@
 import React from 'react';
+import LazyImage from '../common/lazy-img-loader';
+import WeddingPartyMember from './wedding-party-member';
+import useWindowDimensions from '../hooks/window-size';
+import { weddingParty } from '../../enums/wedding-party';
 
-const Wedding = () => (
-  <div className="non-splash-container">
-    <div style={{
-      display: 'flex', justifyContent: 'center', flexDirection: 'column', padding: '2rem',
-    }}
-    >
-      <div>Under Construction</div>
-      <i className="fas fa-tools fa-7x" />
-      <i className="fas fa-user-hard-hat" />
-    </div>
+import './wedding.css';
 
-  </div>
-);
+function Wedding() {
+	const { height, width } = useWindowDimensions();
+	const viewport = { height, width };
+	const src = '/splash_party.jpg'
+	const weddingComponent = weddingParty.map((person, index) => <WeddingPartyMember {...person} viewport={viewport} key={index} index={index}/>)
+	return (
+		<div className="section-container">
+			<div className="grey-overlay" />
+			<div style={{ display: 'flex', width: '100%', zIndex: 2, flexDirection: 'column' }}>
+				<h4 className="section-header" style={{ marginBottom: '2rem', marginTop: '2rem' }}>The Wedding Party</h4>
+				<LazyImage src={src} />
+				<ul className="wedding-party-list-container" style={{ marginTop: '2rem', padding: '2rem', }}>
+					{weddingComponent}
+				</ul>
+			</div>
+		</div>
+	);
+}
 
 export default Wedding;

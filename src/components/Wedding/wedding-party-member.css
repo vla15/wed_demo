@@ -1,0 +1,36 @@
+@keyframes slide-in-left {
+	0% { transform: translateX(-100%) }
+	100% { transform: translateY(0%) }
+}
+
+@keyframes slide-in-right {
+	0% { transform: translateX(100%) }
+	100% { transform: translateX(0%) }
+}
+
+.wedding-party-item {
+	visibility: visible;
+	min-height: 12rem;
+	border: 1px solid black;
+	position: relative;
+}
+
+.wedding-party-visible-left {
+	opacity: 1;
+	animation: slide-in-left 0.3s ease;;
+}
+
+.wedding-party-visible-right {
+	opacity: 1;
+	animation: slide-in-right 0.3s ease;
+}
+
+.not-visible {
+	visibility: hidden !important;
+}
+
+.wedding-party-item-content {
+	padding: 1rem;
+	display: flex;
+	width: 100%;
+}
